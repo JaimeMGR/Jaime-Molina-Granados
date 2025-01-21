@@ -9,7 +9,6 @@ body {
 
 .fade-in {
     opacity: 0;
-    transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
@@ -18,12 +17,7 @@ body {
     transform: translateY(0);
 }
 
-.hover-highlight:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transition: background-color 0.3s;
-}
-
-#fotojaime{
+#fotojaime {
     width: 300px;
     height: 300px;
     background-image: url('https://picsum.photos/id/237/300/300');
@@ -31,81 +25,82 @@ body {
     background-position: center;
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    transition: transform .2s;
 }
 
-#fotojaime:hover{
-    transform: scale(1.3);
-}
 
-#tarjeta{
-    transition: transform .2s;
-}
-
-#tarjeta:hover{
-    transform: scale(1.1);
-}
-
-#formacion:hover{
-    transform: translateY(-5px);
-}
-strong{
+strong {
     color: rgb(74 222 128 / var(--tw-text-opacity, 1))
 }
 
-header{
+header {
     margin-bottom: 50px;
 }
 
-h2{
+h2 {
     margin-top: 50px;
 }
 
-.intro{
+.intro, .subtitulo {
     font-size: 25px;
 }
 
-#about{
-    margin-top: 50px;;
+.intro {
+    text-align: justify;
 }
 
+#about {
+    margin-top: 50px;
+    ;
+}
 
-@keyframes go-left-right {        /* dale un nombre: "go-left-right" */
-    from { left: 100%; }             /* animar desde la izquierda: 0px */
-    to { left: calc(100% - 100%); } /* animar a la izquierda: 100%-50px */
-  }
+@keyframes go-right-left {
 
-  @keyframes go-right-left {        /* dale un nombre: "go-left-right" */
-    from { right: 100%; }             /* animar desde la izquierda: 0px */
-    to { right: calc(100% - 100%); } /* animar a la izquierda: 100%-50px */
-  }
+    /* dale un nombre: "go-left-right" */
+    from {
+        right: 100%;
+    }
 
-  .progress1 {
-    animation: go-left-right 6s infinite alternate;
-    /* aplicar la animación "go-left-right" al elemento
-       duración 3 segundos
-       número de veces: infinitas
-       alternar la dirección cada vez
-    */
+    /* animar desde la izquierda: 0px */
+    to {
+        right: calc(100% - 100%);
+    }
 
+    /* animar a la izquierda: 100%-50px */
+}
+
+.progress {
+    animation: go-right-left 3s infinite alternate;
+    /*aplicarlaanimación"go-left-right"alelementoduración3segundosnúmerodeveces:;
+    infinitasalternarladireccióncadavez*/
     position: relative;
     border: 2px solid rgb(74 222 128 / var(--tw-text-opacity, 1));
     width: 100%;
     height: 4px;
     background: rgb(74 222 128 / var(--tw-text-opacity, 1));
-  }
+    -webkit-animation: go-right-left 3s infinite alternate;
+}
 
-  .progress2 {
-    animation: go-right-left 6s infinite alternate;
-    /* aplicar la animación "go-left-right" al elemento
-       duración 3 segundos
-       número de veces: infinitas
-       alternar la dirección cada vez
-    */
+/* restricción para pantallas moviles */
+@media (min-width: 768px) {
+    #tarjeta:hover {
+        transform: scale(1.1);
+    }
 
-    position: relative;
-    border: 2px solid rgb(74 222 128 / var(--tw-text-opacity, 1));
-    width: 100%;
-    height: 4px;
-    background: rgb(74 222 128 / var(--tw-text-opacity, 1));
-  }
+    #formacion:hover {
+        transform: translateY(-5px);
+    }
+
+    #fotojaime:hover {
+        transform: scale(1.3);
+    }
+
+    .hover-highlight:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transition: background-color 0.3s;
+        transition: transform .2s;
+    }
+
+    #tarjeta {
+        transition: transform .2s;
+    }
+}

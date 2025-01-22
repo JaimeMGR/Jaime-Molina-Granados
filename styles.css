@@ -171,6 +171,10 @@
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     }
 
+    p strong{
+        color: var(--color-secondary-dark)
+    }
+
 
     strong {
         /* color: var(--color-primary-light); */

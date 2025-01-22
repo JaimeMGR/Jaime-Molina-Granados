@@ -1,56 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    font-family: 'Roboto';
-}
-
-.fade-in {
-    opacity: 0;
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-#fotojaime {
-    width: 300px;
-    height: 300px;
-    background-image: url('https://picsum.photos/id/237/300/300');
-    background-size: cover;
-    background-position: center;
-    border-radius: 50%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-
-strong {
-    color: rgb(74 222 128 / var(--tw-text-opacity, 1))
-}
-
-header {
-    margin-bottom: 50px;
-}
-
-h2 {
-    margin-top: 50px;
-}
-
-.intro, .subtitulo {
-    font-size: 25px;
-}
-
-.intro {
-    text-align: justify;
-}
-
-#about {
-    margin-top: 50px;
-    ;
+:root {
+    --color-background-dark: rgb(17 24 39 / var(--tw-bg-opacity, 1));
+    --color-primary-dark:var(--color-background-dark);
+    --color-secondary-dark:rgb(74 222 128 / var(--tw-text-opacity, 1));
+    --color-background-light: beige;
+    --color-primary-light: rgb(74 222 128 / var(--tw-text-opacity, 1));
+    --color-secondary-light: rgb(31 41 55 / var(--tw-bg-opacity, 1))
 }
 
 @keyframes go-right-left {
@@ -81,7 +37,6 @@ h2 {
 }
 
 /* restricción para pantallas moviles */
-@media (min-width: 768px) {
     #tarjeta:hover {
         transform: scale(1.1);
     }
@@ -90,19 +45,176 @@ h2 {
         transform: scale(1.1);
         duration: 1000;
         transition: transform .2s;
-}
+    }
 
     #formacion:hover {
         transform: translateY(-5px);
     }
 
-    .hover-highlight:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        transition: background-color 0.3s;
-        transition: transform .2s;
-    }
+
 
     #tarjeta {
         transition: transform .2s;
+    }
+
+
+@media (prefers-color-scheme: light) {
+
+    /* Estilos para el modo claro */
+    .fade-in {
+        opacity: 0;
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .apartado{
+        color:var(--color-primary-dark);
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        font-family: 'Roboto';
+        background: beige;
+    }
+
+    .container-animation {
+        background: beige;
+    }
+
+    header h1 {
+        color: var(--color-secondary-light);
+        background: var(--color-background);
+    }
+
+    .subtitulo {
+        color: var(--color-secondary-light);
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    footer{
+        color:white;
+    }
+
+    #fotojaime {
+        width: 300px;
+        height: 300px;
+        background-image: url('https://picsum.photos/id/237/300/300');
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+
+    strong {
+        /* color: rgb(31 41 55 / var(--tw-bg-opacity, 1)); */
+    }
+
+    header {
+        margin-bottom: 50px;
+    }
+
+    h2 {
+        margin-top: 50px;
+    }
+
+    .intro,
+    .subtitulo {
+        font-size: 25px;
+    }
+
+    .intro {
+        text-align: justify;
+        color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
+    }
+
+    #about {
+        margin-top: 50px;
+        ;
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        font-family: 'Roboto';
+        background: var(--color-background-dark);
+    }
+
+    /* Estilos para el modo oscuro */
+    .fade-in {
+        opacity: 0;
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    #fotojaime {
+        width: 300px;
+        height: 300px;
+        background-image: url('https://picsum.photos/id/237/300/300');
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+
+    strong {
+        /* color: var(--color-primary-light); */
+    }
+
+    header {
+        margin-bottom: 50px;
+    }
+
+    header h1 {
+        color: var(--color-secondary-dark)
+    }
+
+    h2 {
+        margin-top: 50px;
+    }
+
+    .intro,
+    .subtitulo {
+        font-size: 25px;
+    }
+
+    .subtitulo {
+        color:white;
+    }
+
+    .intro {
+        text-align: justify;
+    }
+
+    #about {
+        margin-top: 50px;
+        ;
+    }
+
+    .apartado{
+        color:var(--color-secondary-dark);
+    }
+
+    @media (min-width: 768px) {
+        .hover-highlight:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: background-color 0.3s;
+            transition: transform .2s;
+        }
     }
 }

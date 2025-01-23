@@ -25,6 +25,12 @@
     /* animar a la izquierda: 100%-50px */
 }
 
+@media (max-width: 768px){
+    .boton-menu{
+        display:none;
+    }
+}
+
 .menu-lateral {
     background-color:var(--color-side-menu);
     z-index: 100;
@@ -65,7 +71,6 @@
     position: fixed;
     bottom: 1vw;
     right: 1vw;
-    z-index: 100;
 }
 
 .copyright {

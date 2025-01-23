@@ -132,7 +132,15 @@ a:hover {
     color: #007bff;
 }
 
+footer *{
+    color:white;
+    text-decoration: none;
+}
 
+footer *:hover{
+    color:white;
+    text-decoration: none;
+}
 
 .progress {
     animation: go-right-left 3s infinite alternate;

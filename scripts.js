@@ -20,3 +20,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.querySelectorAll('.fade-in').forEach(section => {
     observer.observe(section);
 });
+
+function toggleMenu() {
+    const menuLateral = document.getElementById("menu-lateral");
+    menuLateral.classList.toggle("visible");
+}

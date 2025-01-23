@@ -42,6 +42,12 @@
     color: var(--color-background-light);
 }
 
+.tecnologias{
+    padding: 0%;
+    font-size: large;
+    text-align: center;
+}
+
 .menu-lateral p strong {
     color: var(--color-secondary-dark);
     /* quiero un tamaño fijo de las letras */

@@ -1,27 +1,29 @@
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+window.addEventListener('load', (event) => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
-});
 
 
- // Fade-in effect on scroll
- const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
+    // Fade-in effect on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
     });
-});
 
-document.querySelectorAll('.fade-in').forEach(section => {
-    observer.observe(section);
-});
+    document.querySelectorAll('.fade-in').forEach(section => {
+        observer.observe(section);
+    });
 
-function toggleMenu() {
-    const menuLateral = document.getElementById("menu-lateral");
-    menuLateral.classList.toggle("visible");
-}
+    function toggleMenu() {
+        const menuLateral = document.getElementById("menu-lateral");
+        menuLateral.classList.toggle("visible");
+    }
+});

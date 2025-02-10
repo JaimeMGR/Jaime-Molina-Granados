@@ -340,3 +340,12 @@ footer *:hover{
         }
     }
 }
+
+.more {
+    cursor: pointer;
+    color: rgb(96 165 250);
+  }
+  
+  .complete {
+    display: none;
+  }

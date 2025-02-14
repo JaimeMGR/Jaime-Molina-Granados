@@ -1,4 +1,4 @@
-window.addEventListener('load', (event) => {
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -26,7 +26,7 @@ window.addEventListener('load', (event) => {
         const menuLateral = document.getElementById("menu-lateral");
         menuLateral.classList.toggle("visible");
     }
-});
+
 
 $(document).ready(function() {
     $(".more").on("click", function() {

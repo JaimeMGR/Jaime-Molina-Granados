@@ -51,7 +51,7 @@
 .menu-lateral p strong {
     color: var(--color-secondary-dark);
     /* quiero un tamaño fijo de las letras */
-    font-size: 1vw;
+    font-size: 100%;
 }
 
 .menu-lateral p strong:hover {
@@ -77,6 +77,7 @@
     position: fixed;
     bottom: 1vw;
     right: 1vw;
+    z-index: 100;
 }
 
 .copyright {
@@ -94,17 +95,18 @@
     position: fixed;
     top: 0;
     right: -100%;
-    width: 11%;
+    width: 25%;
     padding: 1vw;
     transition: all 0.3s ease-in-out;
     overflow-y: auto;
     height: 100vh;
-    font-size: 1vw;
+    font-size: 100%;
 }
 
 .menu-lateral a {
     text-decoration: none;
-    padding:0
+    padding:0;
+    font-size: 100%;
 }
 
 

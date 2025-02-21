@@ -351,3 +351,11 @@ footer *:hover{
   .complete {
     display: none;
   }
+
+  #linkedin {
+    color: white;
+  }
+
+  #linkedin:hover {
+    color: rgb(134 239 172);
+  }

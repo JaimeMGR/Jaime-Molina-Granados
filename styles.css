@@ -156,6 +156,8 @@ footer *:hover{
     -webkit-animation: go-right-left 3s infinite alternate;
 }
 
+
+
 /* restricción para pantallas moviles */
 #tarjeta:hover {
     transform: scale(1.1);
@@ -359,3 +361,12 @@ footer *:hover{
   #linkedin:hover {
     color: rgb(134 239 172);
   }
+
+  #correo{
+    color:white;
+    text-decoration: none;
+}
+
+#correo:hover{
+    color:rgb(134 239 172);
+}

@@ -188,6 +188,10 @@ footer *:hover{
         transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
 
+    .enunciado{
+        background-color:beige ;
+    }
+
 .disenioboton{
     color:var(--color-primary-dark);
 }

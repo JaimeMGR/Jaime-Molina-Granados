@@ -208,11 +208,54 @@ const data = {
         "C#",
         "Kotlin",
       ],
-      web: ["HTML5", "CSS3", "Tailwind", "Bootstrap", "React", "Node.js"],
-      db: ["MySQL", "SQL", "MongoDB", "Firebase", "Oracle"],
-      tools: ["Git", "GitHub", "GitLab", "XAMPP", "WordPress", "WooCommerce", "JetEngine"],
-      design: ["GIMP", "Photoshop", "Canva", "Blender"],
-      systems: ["Windows", "Linux", "Android", "iOS"],
+      web: [
+        "HTML5",
+        "CSS3",
+        "Tailwind",
+        "Bootstrap",
+        "React",
+        "Node.js",
+        "WordPress",
+        "WooCommerce",
+        "Joomla",
+        "JetEngine",
+      ],
+      db: [
+        "MySQL",
+        "SQL",
+        "MongoDB",
+        "Firebase",
+        "Oracle",
+        "NoSQL"
+      ],
+      tools: [
+        "Git",
+        "GitHub",
+        "GitLab",
+        "Docker",
+        "XAMPP",
+        "Microsoft Office",
+        "Google Docs",
+        "LibreOffice",
+        "OBS",
+        "Shotcut",
+        "GIMP",
+        "Photoshop",
+        "Canva",
+        "Blender",
+      ],
+      design: [
+        "CSS",
+        "Bootstrap",
+        "Tailwind",
+        "UI/UX Design",
+      ],
+      systems: [
+        "Windows",
+        "Linux",
+        "Android",
+        "iOS"
+      ],
     },
     certifications: [
       {
@@ -426,11 +469,54 @@ const data = {
         "C#",
         "Kotlin",
       ],
-      web: ["HTML5", "CSS3", "Tailwind", "Bootstrap", "React", "Node.js"],
-      db: ["MySQL", "SQL", "MongoDB", "Firebase", "Oracle"],
-      tools: ["Git", "GitHub", "GitLab", "XAMPP", "WordPress", "WooCommerce", "JetEngine"],
-      design: ["GIMP", "Photoshop", "Canva", "Blender"],
-      systems: ["Windows", "Linux", "Android", "iOS"],
+      web: [
+        "HTML5",
+        "CSS3",
+        "Tailwind",
+        "Bootstrap",
+        "React",
+        "Node.js",
+        "WordPress",
+        "WooCommerce",
+        "Joomla",
+        "JetEngine",
+      ],
+      db: [
+        "MySQL",
+        "SQL",
+        "MongoDB",
+        "Firebase",
+        "Oracle",
+        "NoSQL"
+      ],
+      tools: [
+        "Git",
+        "GitHub",
+        "GitLab",
+        "Docker",
+        "XAMPP",
+        "Microsoft Office",
+        "Google Docs",
+        "LibreOffice",
+        "OBS",
+        "Shotcut",
+        "GIMP",
+        "Photoshop",
+        "Canva",
+        "Blender",
+      ],
+      design: [
+        "CSS",
+        "Bootstrap",
+        "Tailwind",
+        "UI/UX Design",
+      ],
+      systems: [
+        "Windows",
+        "Linux",
+        "Android",
+        "iOS"
+      ],
     },
     certifications: [
       {
@@ -734,8 +820,9 @@ export default function App() {
                   <div>
                     <h4 className="font-semibold text-lg">{exp.role}</h4>
                     <div className="text-sm text-slate-400">{exp.company}</div>
+                    <div className="text-xs text-slate-500">{exp.dates}</div>
                   </div>
-                  <div className="text-xs text-slate-500">{exp.dates}</div>
+
                 </div>
 
                 <ul className="mt-3 text-slate-400 list-disc list-inside space-y-1 text-sm">
@@ -852,7 +939,7 @@ export default function App() {
               </div>
 
               <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
-                <div className="font-semibold capitalize mb-2">Bases de Datos</div>
+                <div className="font-semibold mb-2">Bases de Datos</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.db.map((s) => (
                     <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">

@@ -939,7 +939,7 @@ export default function App() {
               </div>
 
               <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
-                <div className="font-semibold mb-2">Bases de Datos</div>
+                <div className="font-semibold mb-2">Bases de datos</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.db.map((s) => (
                     <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">

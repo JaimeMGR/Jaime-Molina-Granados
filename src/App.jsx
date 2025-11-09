@@ -609,7 +609,7 @@ export default function App() {
             className="bg-slate-800 rounded-2xl p-6 shadow-lg text-center"
           >
             <div className="w-28 h-28 rounded-full bg-sky-500 text-black mx-auto flex items-center justify-center text-3xl font-bold mb-4 transform transition-transform duration-300 hover:scale-110">
-              <img src="/public/jaime.jpg" alt="Jaime Molina Granados" className="rounded-full" />
+              <img src="jaime.jpg" alt="Jaime Molina Granados" className="rounded-full" />
             </div>
             <div className="font-semibold">{t.title}</div>
             <div className="text-slate-400 text-sm">{t.location}</div>

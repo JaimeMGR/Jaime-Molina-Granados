@@ -206,23 +206,39 @@ const data = {
         "PHP",
         "Python",
         "C#",
-        "Kotlin",
+        "SQL"
       ],
       web: [
         "HTML5",
         "CSS3",
-        "Tailwind",
-        "Bootstrap",
         "React",
         "Node.js",
+        "Tailwind CSS",
+        "Bootstrap",
+        "Microservicios",
+        "Java API",
+        "API CRUD",
+        "Desarrollo de aplicaciones PHP",
+        "JSON",
+        "XML",
         "WordPress",
         "WooCommerce",
         "Joomla",
-        "JetEngine",
+        "Drupal",
+        "Moodle",
+        "JetEngine"
+      ],
+      multiplataforma: [
+        "Kotlin",
+        "Desarrollo Android",
+        "Android",
+        "iOS",
+        "Android Studio",
+        "Docker"
       ],
       db: [
         "MySQL",
-        "SQL",
+        "PostgreSQL",
         "MongoDB",
         "Firebase",
         "Oracle",
@@ -232,30 +248,56 @@ const data = {
         "Git",
         "GitHub",
         "GitLab",
-        "Docker",
+        "IntelliJ IDEA",
+        "Eclipse",
         "XAMPP",
+        "Slack",
+        "Trello",
+        "Jira",
         "Microsoft Office",
+        "Office 365",
         "Google Docs",
         "LibreOffice",
         "OBS",
-        "Shotcut",
-        "GIMP",
-        "Photoshop",
-        "Canva",
-        "Blender",
+        "Shotcut"
       ],
       design: [
-        "CSS",
-        "Bootstrap",
-        "Tailwind",
         "UI/UX Design",
+        "Diseño gráfico",
+        "Diseño web",
+        "Diseño de interfaces",
+        "Diseño de logotipos",
+        "Photoshop",
+        "Adobe XD",
+        "GIMP",
+        "Canva",
+        "Blender",
+        "Publicidad en internet",
+        "Google Ads"
       ],
       systems: [
         "Windows",
         "Linux",
-        "Android",
-        "iOS"
+        "Windows Server",
+        "Mac",
+        "Arquitectura de redes",
+        "Redes inalámbricas",
+        "Gestión de redes",
+        "Seguridad informática",
+        "Mantenimiento de equipos informáticos"
       ],
+      methodologies: [
+        "Metodologías ágiles",
+        "SCRUM",
+        "Gestión de proyectos",
+        "AI (Inteligencia Artificial)",
+        "Trabajo en equipo",
+        "Resolución de problemas",
+        "Atención al detalle",
+        "Liderazgo organizacional",
+        "Gestión de ventas",
+        "Gestión de eventos"
+      ]
     },
     certifications: [
       {
@@ -467,23 +509,39 @@ const data = {
         "PHP",
         "Python",
         "C#",
-        "Kotlin",
+        "SQL"
       ],
       web: [
         "HTML5",
         "CSS3",
-        "Tailwind",
-        "Bootstrap",
         "React",
         "Node.js",
+        "Tailwind CSS",
+        "Bootstrap",
+        "Microservices",
+        "Java API",
+        "API CRUD",
+        "PHP Applications Development",
+        "JSON",
+        "XML",
         "WordPress",
         "WooCommerce",
         "Joomla",
-        "JetEngine",
+        "Drupal",
+        "Moodle",
+        "JetEngine"
+      ],
+      multiplataforma: [
+        "Kotlin",
+        "Android Development",
+        "Android",
+        "iOS",
+        "Android Studio",
+        "Docker"
       ],
       db: [
         "MySQL",
-        "SQL",
+        "PostgreSQL",
         "MongoDB",
         "Firebase",
         "Oracle",
@@ -493,30 +551,56 @@ const data = {
         "Git",
         "GitHub",
         "GitLab",
-        "Docker",
+        "IntelliJ IDEA",
+        "Eclipse",
         "XAMPP",
+        "Slack",
+        "Trello",
+        "Jira",
         "Microsoft Office",
+        "Office 365",
         "Google Docs",
         "LibreOffice",
         "OBS",
-        "Shotcut",
-        "GIMP",
-        "Photoshop",
-        "Canva",
-        "Blender",
+        "Shotcut"
       ],
       design: [
-        "CSS",
-        "Bootstrap",
-        "Tailwind",
         "UI/UX Design",
+        "Graphic Design",
+        "Web Design",
+        "Interface Design",
+        "Logo Design",
+        "Photoshop",
+        "Adobe XD",
+        "GIMP",
+        "Canva",
+        "Blender",
+        "Online Advertising",
+        "Google Ads"
       ],
       systems: [
         "Windows",
         "Linux",
-        "Android",
-        "iOS"
+        "Windows Server",
+        "Mac",
+        "Network Architecture",
+        "Wireless Networks",
+        "Network Management",
+        "Cybersecurity",
+        "Computer Maintenance"
       ],
+      methodologies: [
+        "Agile Methodologies",
+        "SCRUM",
+        "Project Management",
+        "AI (Artificial Intelligence)",
+        "Teamwork",
+        "Problem Solving",
+        "Attention to Detail",
+        "Organizational Leadership",
+        "Sales Management",
+        "Event Management"
+      ]
     },
     certifications: [
       {
@@ -857,7 +941,7 @@ export default function App() {
               >
                 <div className="flex justify-between items-start">
                   <div>
-                    <h4 className="font-semibold">{edu.title}</h4>
+                    <h5 className="font-semibold">{edu.title}</h5>
                     <div className="text-sm text-slate-400">{edu.org}</div>
                     {edu.note && <div className="text-xs text-slate-500 mt-1">{edu.note}</div>}
                     {edu.web && (
@@ -939,6 +1023,17 @@ export default function App() {
               </div>
 
               <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Multiplataforma</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.multiplataforma.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold mb-2">Bases de datos</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.db.map((s) => (
@@ -981,6 +1076,17 @@ export default function App() {
                   ))}
                 </div>
               </div>
+
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Metodologías</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.methodologies.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
@@ -1002,6 +1108,17 @@ export default function App() {
                 <div className="font-semibold capitalize mb-2">Web</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.web.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Multiplatform</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.multiplataforma.map((s) => (
                     <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
                       {s}
                     </span>
@@ -1052,7 +1169,20 @@ export default function App() {
                   ))}
                 </div>
               </div>
+
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Methodologies</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.methodologies.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
+
+
           )}
         </section>
 

@@ -13,6 +13,7 @@ const data = {
     location: "Granada, España",
     email: "jaimemg1312@gmail.com",
     phone: "+34 668 533 704",
+    ingles: "Inglés: Nivel B2",
     about:
       "Desarrollador web con experiencia práctica en WordPress, JavaScript y PHP. Me especializo en crear soluciones funcionales enfocadas en la experiencia del usuario y el rendimiento. Interés en proyectos full stack y aplicaciones que integren bases de datos y lógica de servidor.",
     sections: {
@@ -232,6 +233,7 @@ const data = {
     location: "Granada, Spain",
     email: "jaimemg1312@gmail.com",
     phone: "+34 668 533 704",
+    ingles: "English: Level B2",
     about:
       "Web developer with hands-on experience in WordPress, JavaScript and PHP. I specialize in creating functional solutions focused on user experience and performance. Interested in full stack projects and apps integrating databases and server logic.",
     sections: {
@@ -469,6 +471,7 @@ export default function App() {
             <div>
               <div className="font-semibold">{t.name}</div>
               <div className="text-xs text-slate-400 -mt-0.5">{t.title}</div>
+              <div className="text-xs text-slate-400 mt-1">{t.ingles}</div>
             </div>
           </div>
 
@@ -542,20 +545,20 @@ export default function App() {
           {/* Quiero poner un botón junto a otro en u div */}
           <div className=" flex flex-raw gap-3">
 
-          <button
-            onClick={() => setLang(lang === "es" ? "en" : "es")}
-            className="mt-4 px-3 py-1 rounded-xl bg-slate-800 hover:bg-sky-500 transition text-xs"
-            aria-label="Cambiar idioma"
-          >
-            {lang === "es" ? "🇬🇧 English" : "🇪🇸 Español"}
-          </button>
-          <a
-            href={CV_PDF_URL}
-            className="mt-4 px-3 py-1 rounded-lg bg-sky-500 hover:bg-sky-600 text-black text-sm font-medium no-underline"
-            onClick={toggleMenu}
-          >
-            CV
-          </a>
+            <button
+              onClick={() => setLang(lang === "es" ? "en" : "es")}
+              className="mt-4 px-3 py-1 rounded-xl bg-slate-800 hover:bg-sky-500 transition text-xs"
+              aria-label="Cambiar idioma"
+            >
+              {lang === "es" ? "🇬🇧 English" : "🇪🇸 Español"}
+            </button>
+            <a
+              href={CV_PDF_URL}
+              className="mt-4 px-3 py-1 rounded-lg bg-sky-500 hover:bg-sky-600 text-black text-sm font-medium no-underline"
+              onClick={toggleMenu}
+            >
+              CV
+            </a>
           </div>
         </div>
       </div>
@@ -619,6 +622,7 @@ export default function App() {
               <div className="mt-1">{t.phone}</div>
             </div>
 
+
             <div className="mt-4 flex flex-col gap-2">
               <a
                 href={`https://github.com/${githubUser}`}
@@ -636,6 +640,8 @@ export default function App() {
               </a>
             </div>
           </motion.aside>
+
+
         </section>
 
         {/* Projects Section */}

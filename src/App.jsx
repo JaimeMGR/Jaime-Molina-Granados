@@ -9,7 +9,7 @@ const CV_PDF_URL = "/JaimeMolinaGranados.pdf";
 const data = {
   es: {
     name: "Jaime Molina Granados",
-    title: "Desarrollador Web Full Stack",
+    title: "Desarrollador web full stack",
     location: "Granada, España",
     email: "jaimemg1312@gmail.com",
     phone: "+34 668 533 704",
@@ -26,7 +26,7 @@ const data = {
     },
     experiences: [
       {
-        role: "Desarrollador Web Junior",
+        role: "Desarrollador web junior",
         company: "Wit Creativo (prácticas)",
         dates: "03/2025 – 06/2025",
         bullets: [
@@ -37,7 +37,7 @@ const data = {
         ],
       },
       {
-        role: "Desarrollador Full Stack Junior",
+        role: "Desarrollador full stack junior",
         company: "OYR Solutions (prácticas)",
         dates: "03/2024 – 06/2024",
         bullets: [
@@ -56,7 +56,7 @@ const data = {
         ],
       },
       {
-        role: "Diseñador Gráfico",
+        role: "Diseñador gráfico",
         company: "Property Partners (Erasmus+)",
         dates: "06/2021 – 08/2021",
         bullets: [
@@ -65,7 +65,7 @@ const data = {
         ],
       },
       {
-        role: "Técnico Microinformático",
+        role: "Técnico microinformático",
         company: "TecnoSecond (Prácticas)",
         dates: "03/2021 – 06/2021",
         bullets: [
@@ -272,7 +272,7 @@ const data = {
   },
   en: {
     name: "Jaime Molina Granados",
-    title: "Full Stack Web Developer",
+    title: "Full stack web developer",
     location: "Granada, Spain",
     email: "jaimemg1312@gmail.com",
     phone: "+34 668 533 704",
@@ -289,7 +289,7 @@ const data = {
     },
     experiences: [
       {
-        role: "Junior Web Developer",
+        role: "Junior web developer",
         company: "Wit Creativo (internship)",
         dates: "03/2025 – 06/2025",
         bullets: [
@@ -299,7 +299,7 @@ const data = {
         ],
       },
       {
-        role: "Junior Full Stack Developer",
+        role: "Junior full stack developer",
         company: "OYR Solutions (internship)",
         dates: "03/2024 – 06/2024",
         bullets: [
@@ -317,7 +317,7 @@ const data = {
         ],
       },
       {
-        role: "Graphic Designer",
+        role: "Graphic designer",
         company: "Property Partners (Erasmus+)",
         dates: "06/2021 – 08/2021",
         bullets: [
@@ -326,7 +326,7 @@ const data = {
         ],
       },
       {
-        role: "Microcomputer Technician",
+        role: "Microcomputer technician",
         company: "TecnoSecond (internship)",
         dates: "03/2021 – 06/2021",
         bullets: [
@@ -337,19 +337,19 @@ const data = {
     ],
     education: [
       {
-        title: "Higher Degree in Web Application Development",
+        title: "Higher degree in web application development (DAW)",
         org: "Atlántida CIDEP",
         dates: "2021 – 2025",
         note: "Final grade 8.08",
       },
       {
-        title: "Higher Degree in Multiplatform Application Development",
+        title: "Higher degree in multiplatform application development (DAM)",
         org: "Atlántida CIDEP",
         dates: "2021 – 2024",
         note: "Final grade 7.69",
       },
       {
-        title: "Intermediate Degree in Microcomputer Systems and Networks",
+        title: "Intermediate degree in microcomputer systems and networks (ASIR)",
         org: "I.E.S. Aricel",
         dates: "2019 – 2021",
       },

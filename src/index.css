@@ -1,0 +1,102 @@
+/* index.css */
+
+/* Paleta de colores */
+:root {
+  --primary-color: #4b9cd3; /* Azul para enlaces y botones */
+  --secondary-color: #f8f9fa; /* Gris suave para el fondo */
+  --dark-color: #121212; /* Fondo oscuro */
+  --light-color: #f0f0f0; /* Color claro para texto */
+  --highlight-color: #ffb800; /* Amarillo para resaltar */
+  --bg-dark: #181818; /* Fondo ligeramente más claro */
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--light-color);
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Botones */
+.btn-info {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-info:hover {
+  background-color: var(--highlight-color);
+}
+
+.btn-outline-info {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline-info:hover {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+/* Enlaces */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--highlight-color);
+}
+
+/* Estilo de Card */
+.card {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  border: 1px solid var(--primary-color);
+}
+
+.card-title {
+  color: var(--primary-color);
+}
+
+.card-text {
+  color: var(--secondary-color);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 767px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .btn-info {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+  
+  .card {
+    margin-bottom: 15px;
+  }
+
+  .d-md-flex {
+    flex-direction: column;
+  }
+}

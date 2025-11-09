@@ -1,0 +1,1009 @@
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import "./App.css";
+import "./index.css";
+
+const githubUser = "JaimeMGR";
+const CV_PDF_URL = "/JaimeMolinaGranados.pdf";
+
+const data = {
+  es: {
+    name: "Jaime Molina Granados",
+    title: "Desarrollador Web Full Stack",
+    location: "Granada, España",
+    email: "jaimemg1312@gmail.com",
+    phone: "+34 668 533 704",
+    about:
+      "Desarrollador web con experiencia práctica en WordPress, JavaScript y PHP. Me especializo en crear soluciones funcionales enfocadas en la experiencia del usuario y el rendimiento. Interés en proyectos full stack y aplicaciones que integren bases de datos y lógica de servidor.",
+    sections: {
+      experience: "Experiencia",
+      education: "Formación",
+      projects: "Proyectos",
+      skills: "Habilidades",
+      contact: "Contacto",
+      certifications: "Certificaciones",
+    },
+    experiences: [
+      {
+        role: "Desarrollador Web Junior",
+        company: "Wit Creativo (prácticas)",
+        dates: "03/2025 – 06/2025",
+        bullets: [
+          "Desarrollo y personalización de sitios web con WordPress y Elementor.",
+          "Integración de funcionalidades mediante plugins como JetEngine y WooCommerce.",
+          "Edición de contenidos y optimización del rendimiento web.",
+          "Gestión de proyectos web de principio a fin.",
+        ],
+      },
+      {
+        role: "Desarrollador Full Stack Junior",
+        company: "OYR Solutions (prácticas)",
+        dates: "03/2024 – 06/2024",
+        bullets: [
+          "Desarrollo de aplicaciones web full stack con enfoque en UX/UI.",
+          "Programación front-end (JavaScript) y back-end (lógica de servidor y BD).",
+          "Colaboración en estrategias digitales y análisis de feedback de usuarios.",
+        ],
+      },
+      {
+        role: "Director de IT",
+        company: "Love 2 Learn (Erasmus+)",
+        dates: "06/2021 – 08/2021",
+        bullets: [
+          "Mantenimiento de equipos informáticos y administración de cuentas.",
+          "Soporte técnico y documentación digital en un entorno internacional.",
+        ],
+      },
+      {
+        role: "Diseñador Gráfico",
+        company: "Property Partners (Erasmus+)",
+        dates: "06/2021 – 08/2021",
+        bullets: [
+          "Diseño de material publicitario y edición de imágenes y vídeos utilizando Canva y Adobe Photoshop.",
+          "Creación de contenido visual para campañas publicitarias.",
+        ],
+      },
+      {
+        role: "Técnico Microinformático",
+        company: "TecnoSecond (Prácticas)",
+        dates: "03/2021 – 06/2021",
+        bullets: [
+          "Reparación, mantenimiento y optimización de equipos informáticos.",
+          "Atención al cliente y soporte técnico integral.",
+        ],
+      },
+    ],
+    education: [
+      {
+        title: "Grado superior en desarrollo de aplicaciones web",
+        org: "Atlántida CIDEP",
+        dates: "2021 – 2025",
+        note: "Calificación final 8.08",
+      },
+      {
+        title: "Grado superior en desarrollo de aplicaciones multiplataforma",
+        org: "Atlántida CIDEP",
+        dates: "2021 – 2024",
+        note: "Calificación final 7,69",
+      },
+      {
+        title: "Grado medio en sistemas microinformáticos y redes",
+        org: "I.E.S. Aricel",
+        dates: "2019 – 2021",
+      },
+    ],
+    projects: [
+      {
+        title: "Mis Repositorios",
+        desc:
+          "Aquí encontrarás mi repositorio personal en GitHub, donde voy a ir actualizando poco a poco mis nuevos proyectos que vaya realizando a lo largo del tiempo.",
+        tags: ["GitHub", "Desarrollo", "Desarrollo web", "Desarrollo multiplataforma"],
+        link: "https://github.com/JaimeMGR/Proyectos",
+      },
+      {
+        title: "MNZone (TFG Desarrollo web)",
+        desc:
+          "MNZone es una aplicación web desarrollada en PHP, Python y MySQL para la gestión integral de un centro gaming. Permite a los usuarios registrarse, reservar salas de juego como PS5, VR o simuladores, comprar productos, y dejar testimonios. A su vez, ofrece a los administradores un panel completo para controlar reservas, productos, noticias y estadísticas de uso. Es un sistema pensado para digitalizar y modernizar locales de ocio electrónico.",
+        tags: [
+          "GitHub",
+          "Desarrollo",
+          "Desarrollo web",
+          "Desarrollo multiplataforma",
+          "PHP",
+          "Python",
+          "MySQL",
+          "API CRUD",
+          "Bootstrap",
+        ],
+        link: "https://github.com/JaimeMGR/MNZone",
+      },
+      {
+        title: "Mis Diseños 3D",
+        desc:
+          "Repositorio personal en GitHub donde voy subiendo los diseños 3D hechos con Blender. La verdad es que esto me lo tomo como hobbie.",
+        tags: ["Blender", "3D", "Diseño"],
+        link: "https://github.com/JaimeMGR/Practicando-blender-por-diversi-n",
+      },
+      {
+        title: "Productos Arquelladas",
+        desc:
+          "Web corporativa desarrollada con Elementor en WordPress para empresa familiar de Granada dedicada a la elaboración artesanal de dulces tradicionales.",
+        tags: ["Desarrollo web", "WordPress", "Elementor", "E-commerce"],
+        link: "https://productosarquelladas.es/",
+      },
+      {
+        title: "Viveros Árboles del Sur",
+        desc:
+          "Web corporativa con Elementor en WordPress para un vivero especializado en plantaciones de olivo y pistacho.",
+        tags: ["Desarrollo web", "WordPress", "Elementor"],
+        link: "https://viverosarbolesdelsur.es/",
+      },
+      {
+        title: "MG Equilibrio Nutricional",
+        desc:
+          "Sitio web con Elementor para consulta de nutrición, con blog, formulario de contacto y servicios nutricionales.",
+        tags: ["Desarrollo web", "WordPress", "Elementor"],
+        link: "https://mgequilibrionutricional.es",
+      },
+      {
+        title: "Gamper Export",
+        desc:
+          "Web corporativa con Elementor para empresa de exportación de productos alimenticios.",
+        tags: ["Desarrollo web", "WordPress", "Elementor"],
+        link: "https://gamperexport.com/",
+      },
+      {
+        title: "Maderas Pavisuelos",
+        desc:
+          "Web corporativa con Elementor para empresa de venta de productos de madera y suelos.",
+        tags: ["Desarrollo web", "WordPress", "Elementor"],
+        link: "https://maderaspavisuelos.com/",
+      },
+      {
+        title: "Bodegas Pago de Almaráes",
+        desc:
+          "Web corporativa con Elementor para bodega en Granada, con catálogo de vinos, información histórica y detalles de contacto.",
+        tags: ["Desarrollo web", "WordPress", "Elementor"],
+        link: "https://bodegaspagodealmaraes.com/",
+      },
+      {
+        title: "Atlántida eSports",
+        desc:
+          "Organización de torneos de eSports para la comunidad juvenil, con transmisiones en vivo por Twitch para fomentar competencia sana y desarrollo de habilidades.",
+        tags: ["eSports", "Twitch", "Eventos"],
+        link: "https://www.twitch.tv/atlantida_esports?lang=ro",
+      },
+      {
+        title: "MaxManga",
+        desc:
+          "Aplicación móvil multiplataforma que permite a los usuarios leer y organizar libros en formatos digitales.",
+        tags: ["Desarrollo multiplataforma", "Android", "Firebase", "Kotlin"],
+      },
+      {
+        title: "DAMPONG",
+        desc:
+          "Juego 2D basado en el clásico Pong, con nuevas dinámicas para hacerlo más atractivo en dispositivos modernos.",
+        tags: ["Unity2D", "C#", "Juego"],
+      },
+      {
+        title: "MaxManga Community",
+        desc:
+          "Aplicación móvil que permite a los usuarios registrarse, chatear con otros usuarios y enviar archivos multimedia.",
+        tags: ["Android", "Firebase", "Kotlin"],
+      },
+      {
+        title: "Atarfe Fighting",
+        desc:
+          "Aplicación web para un gimnasio con funcionalidades de registro, información de clases y contacto.",
+        tags: ["HTML5", "CSS3", "JavaScript", "PHP"],
+      },
+    ],
+    skills: {
+      languages: [
+        "JavaScript",
+        "Java",
+        "PHP",
+        "Python",
+        "C#",
+        "Kotlin",
+      ],
+      web: ["HTML5", "CSS3", "Tailwind", "Bootstrap", "React", "Node.js"],
+      db: ["MySQL", "SQL", "MongoDB", "Firebase", "Oracle"],
+      tools: ["Git", "GitHub", "GitLab", "XAMPP", "WordPress", "WooCommerce", "JetEngine"],
+      design: ["GIMP", "Photoshop", "Canva", "Blender"],
+      systems: ["Windows", "Linux", "Android", "iOS"],
+    },
+    certifications: [
+      {
+        title: "App móvil con chat (Kotlin + Firebase) - Udemy",
+        date: "29/05/2024",
+      },
+      {
+        title: "Aplicación Android para PDF (Kotlin + Firebase) - Udemy",
+        date: "10/12/2023",
+      },
+    ],
+    githubReposTitle: "Repos recientes de GitHub",
+    moreOnGitHub: "Más en mi GitHub →",
+  },
+  en: {
+    name: "Jaime Molina Granados",
+    title: "Full Stack Web Developer",
+    location: "Granada, Spain",
+    email: "jaimemg1312@gmail.com",
+    phone: "+34 668 533 704",
+    about:
+      "Web developer with hands-on experience in WordPress, JavaScript and PHP. I specialize in creating functional solutions focused on user experience and performance. Interested in full stack projects and apps integrating databases and server logic.",
+    sections: {
+      experience: "Experience",
+      education: "Education",
+      projects: "Projects",
+      skills: "Skills",
+      contact: "Contact",
+      certifications: "Certifications",
+    },
+    experiences: [
+      {
+        role: "Junior Web Developer",
+        company: "Wit Creativo (internship)",
+        dates: "03/2025 – 06/2025",
+        bullets: [
+          "Development and customization of WordPress sites using Elementor.",
+          "Integrations using plugins such as JetEngine and WooCommerce.",
+          "Content editing and web performance optimization.",
+        ],
+      },
+      {
+        role: "Junior Full Stack Developer",
+        company: "OYR Solutions (internship)",
+        dates: "03/2024 – 06/2024",
+        bullets: [
+          "Full stack web development with UX/UI focus.",
+          "Front-end (JavaScript) and back-end logic and databases.",
+        ],
+      },
+      {
+        role: "IT Director",
+        company: "Love 2 Learn (summer)",
+        dates: "06/2021 – 08/2021",
+        bullets: [
+          "Maintenance of IT equipment and account administration.",
+          "Technical support and documentation in an international environment.",
+        ],
+      },
+      {
+        role: "Graphic Designer",
+        company: "Property Partners (Erasmus+)",
+        dates: "06/2021 – 08/2021",
+        bullets: [
+          "Design of advertising material and image/video editing using Canva and Adobe Photoshop.",
+          "Creation of visual content for advertising campaigns.",
+        ],
+      },
+      {
+        role: "Microcomputer Technician",
+        company: "TecnoSecond (internship)",
+        dates: "03/2021 – 06/2021",
+        bullets: [
+          "Repair, maintenance and optimization of computer equipment.",
+          "Customer service and comprehensive technical support.",
+        ],
+      },
+    ],
+    education: [
+      {
+        title: "Higher Degree in Web Application Development",
+        org: "Atlántida CIDEP",
+        dates: "2021 – 2025",
+        note: "Final grade 8.08",
+      },
+      {
+        title: "Higher Degree in Multiplatform Application Development",
+        org: "Atlántida CIDEP",
+        dates: "2021 – 2024",
+        note: "Final grade 7.69",
+      },
+      {
+        title: "Intermediate Degree in Microcomputer Systems and Networks",
+        org: "I.E.S. Aricel",
+        dates: "2019 – 2021",
+      },
+    ],
+    projects: [
+      {
+        title: "My Repositories",
+        desc:
+          "Here you will find my personal repository on GitHub, where I will gradually update my new projects over time.",
+        tags: ["GitHub", "Development", "Web Development", "Multiplatform Development"],
+        link: "https://github.com/JaimeMGR/Proyectos",
+      },
+      {
+        title: "MNZone (Final Degree Project Web Development)",
+        desc:
+          "MNZone is a web application developed in PHP, Python, and MySQL for the comprehensive management of a gaming center. It allows users to register, book game rooms such as PS5, VR, or simulators, buy products, and leave testimonials. It also provides administrators with a full panel to control bookings, products, news, and usage statistics. It's a system designed to digitalize and modernize electronic leisure venues.",
+        tags: [
+          "GitHub",
+          "Development",
+          "Web Development",
+          "Multiplatform Development",
+          "PHP",
+          "Python",
+          "MySQL",
+          "API CRUD",
+          "Bootstrap",
+        ],
+        link: "https://github.com/JaimeMGR/MNZone",
+      },
+      {
+        title: "My 3D Designs",
+        desc:
+          "Personal repository on GitHub where I upload 3D designs made with Blender. Honestly, I do this as a hobby.",
+        tags: ["Blender", "3D", "Design"],
+        link: "https://github.com/JaimeMGR/Practicando-blender-por-diversi-n",
+      },
+      {
+        title: "Productos Arquelladas",
+        desc:
+          "Corporate website developed with Elementor on WordPress for a family business in Granada dedicated to the artisan production of traditional sweets.",
+        tags: ["Web Development", "WordPress", "Elementor", "E-commerce"],
+        link: "https://productosarquelladas.es/",
+      },
+      {
+        title: "Viveros Árboles del Sur",
+        desc:
+          "Corporate website with Elementor on WordPress for a nursery specialized in olive and pistachio plantations.",
+        tags: ["Web Development", "WordPress", "Elementor"],
+        link: "https://viverosarbolesdelsur.es/",
+      },
+      {
+        title: "MG Equilibrio Nutricional",
+        desc:
+          "Website with Elementor for nutrition consultation, including a blog, contact form, and nutritional services.",
+        tags: ["Web Development", "WordPress", "Elementor"],
+        link: "https://mgequilibrionutricional.es",
+      },
+      {
+        title: "Gamper Export",
+        desc:
+          "Corporate website with Elementor for a food products export company.",
+        tags: ["Web Development", "WordPress", "Elementor"],
+        link: "https://gamperexport.com/",
+      },
+      {
+        title: "Maderas Pavisuelos",
+        desc:
+          "Corporate website with Elementor for a company selling wood products and flooring.",
+        tags: ["Web Development", "WordPress", "Elementor"],
+        link: "https://maderaspavisuelos.com/",
+      },
+      {
+        title: "Bodegas Pago de Almaráes",
+        desc:
+          "Corporate website with Elementor for a winery in Granada, with a wine catalog, historical information, and contact details.",
+        tags: ["Web Development", "WordPress", "Elementor"],
+        link: "https://bodegaspagodealmaraes.com/",
+      },
+      {
+        title: "Atlántida eSports",
+        desc:
+          "Organization of eSports tournaments for the youth community, with live Twitch streams to promote healthy competition and skills development.",
+        tags: ["eSports", "Twitch", "Events"],
+        link: "https://www.twitch.tv/atlantida_esports?lang=ro",
+      },
+      {
+        title: "MaxManga",
+        desc:
+          "Multiplatform mobile app that allows users to read and organize books in digital formats.",
+        tags: ["Multiplatform Development", "Android", "Firebase", "Kotlin"],
+      },
+      {
+        title: "DAMPONG",
+        desc:
+          "2D game based on the classic Pong, with new dynamics to make it more attractive on modern devices.",
+        tags: ["Unity2D", "C#", "Game"],
+      },
+      {
+        title: "MaxManga Community",
+        desc:
+          "Mobile app that allows users to register, chat with other users, and send multimedia files.",
+        tags: ["Android", "Firebase", "Kotlin"],
+      },
+      {
+        title: "Atarfe Fighting",
+        desc:
+          "Web app for a gym with features such as registration, class information, and contact details.",
+        tags: ["HTML5", "CSS3", "JavaScript", "PHP"],
+      },
+    ],
+    skills: {
+      languages: [
+        "JavaScript",
+        "Java",
+        "PHP",
+        "Python",
+        "C#",
+        "Kotlin",
+      ],
+      web: ["HTML5", "CSS3", "Tailwind", "Bootstrap", "React", "Node.js"],
+      db: ["MySQL", "SQL", "MongoDB", "Firebase", "Oracle"],
+      tools: ["Git", "GitHub", "GitLab", "XAMPP", "WordPress", "WooCommerce", "JetEngine"],
+      design: ["GIMP", "Photoshop", "Canva", "Blender"],
+      systems: ["Windows", "Linux", "Android", "iOS"],
+    },
+    certifications: [
+      {
+        title: "Mobile app with chat (Kotlin + Firebase) - Udemy",
+        date: "29/05/2024",
+      },
+      {
+        title: "Android app for PDF (Kotlin + Firebase) - Udemy",
+        date: "10/12/2023",
+      },
+    ],
+    githubReposTitle: "Recent GitHub Repos",
+    moreOnGitHub: "More on my GitHub →",
+  },
+};
+
+const sectionVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i = 0) => ({ opacity: 1, y: 0, transition: { delay: i * 0.08 } }),
+};
+
+export default function App() {
+  const [lang, setLang] = useState("es");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const t = data[lang];
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  return (
+    <div className="min-h-screen bg-[#0f172a] text-slate-100 font-sans">
+      {/* Header */}
+      <header className="sticky top-0 z-40 backdrop-blur-sm bg-black/30 border-b border-slate-700/40">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12 flex items-center justify-between h-16">
+          <div className="flex items-center gap-3">
+            <div className="text-sky-400 font-bold">{"<JM/>"}</div>
+            <div>
+              <div className="font-semibold">{t.name}</div>
+              <div className="text-xs text-slate-400 -mt-0.5">{t.title}</div>
+            </div>
+          </div>
+
+          {/* Menú de escritorio */}
+          <nav className="hidden lg:flex items-center gap-4">
+            <a href="#projects" className="text-sm hover:text-sky-400 text-decoration-none">
+              {t.sections.projects}
+            </a>
+            <a href="#experience" className="text-sm hover:text-sky-400 text-decoration-none">
+              {t.sections.experience}
+            </a>
+            <a href="#education" className="text-sm hover:text-sky-400 text-decoration-none">
+              {t.sections.education}
+            </a>
+            <a href="#contact" className="text-sm hover:text-sky-400 text-decoration-none">
+              {t.sections.contact}
+            </a>
+
+            <button
+              onClick={() => setLang(lang === "es" ? "en" : "es")}
+              className="ml-4 px-3 py-1 rounded-xl bg-slate-800 hover:bg-sky-500 transition text-xs"
+              aria-label="Cambiar idioma"
+            >
+              {lang === "es" ? "🇬🇧 English" : "🇪🇸 Español"}
+            </button>
+            <a
+              href={CV_PDF_URL}
+              className="ml-3 px-3 py-1 rounded-lg bg-sky-500 hover:bg-sky-600 text-black text-sm font-medium no-underline"
+            >
+              CV
+            </a>
+          </nav>
+
+          {/* Menú hamburguesa */}
+          <div className="lg:hidden">
+            <button
+              onClick={toggleMenu}
+              className="text-sky-400 text-3xl"
+              aria-label="Abrir menú"
+            >
+              &#9776;
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Menú lateral */}
+      <div
+        className={`lg:hidden fixed inset-0 bg-black bg-opacity-50 z-30 transition-all ${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+        onClick={toggleMenu} // Cerrar el menú al hacer clic fuera
+      >
+        <div
+          className={`absolute top-0 right-0 bg-slate-900 w-64 h-full p-6 flex flex-col gap-4 transition-all ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+          style={{ marginTop: "64px" }} // Añadir margen superior para evitar que tape el header
+        >
+          <a href="#projects" className="text-sm text-sky-400 no-underline" onClick={toggleMenu}>
+            {t.sections.projects}
+          </a>
+          <a href="#experience" className="text-sm text-sky-400 no-underline" onClick={toggleMenu}>
+            {t.sections.experience}
+          </a>
+          <a href="#education" className="text-sm text-sky-400 no-underline" onClick={toggleMenu}>
+            {t.sections.education}
+          </a>
+          <a href="#contact" className="text-sm text-sky-400 no-underline" onClick={toggleMenu}>
+            {t.sections.contact}
+          </a>
+
+          {/* Quiero poner un botón junto a otro en u div */}
+          <div className=" flex flex-raw gap-3">
+
+          <button
+            onClick={() => setLang(lang === "es" ? "en" : "es")}
+            className="mt-4 px-3 py-1 rounded-xl bg-slate-800 hover:bg-sky-500 transition text-xs"
+            aria-label="Cambiar idioma"
+          >
+            {lang === "es" ? "🇬🇧 English" : "🇪🇸 Español"}
+          </button>
+          <a
+            href={CV_PDF_URL}
+            className="mt-4 px-3 py-1 rounded-lg bg-sky-500 hover:bg-sky-600 text-black text-sm font-medium no-underline"
+            onClick={toggleMenu}
+          >
+            CV
+          </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Resto del contenido */}
+      <main className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12 py-10">
+        {/* Hero Section */}
+        <section className="grid md:grid-cols-3 gap-8 items-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={sectionVariant}
+            className="md:col-span-2"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
+              {lang === "es" ? "Hola, soy" : "Hi, I'm"}{" "}
+              <span className="text-sky-400">{t.name}</span>
+            </h1>
+            <p className="text-slate-400 max-w-3xl mb-6">{t.about}</p>
+
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={CV_PDF_URL}
+                className="inline-block bg-sky-500 text-black px-4 py-2 rounded-xl font-medium shadow hover:bg-sky-600 transition no-underline"
+              >
+                {lang === "es" ? "Descargar CV" : "Download CV"}
+              </a>
+              <a
+                href={`https://github.com/${githubUser}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block border border-sky-500 text-sky-300 px-4 py-2 rounded-xl hover:bg-sky-500/10 transition no-underline"
+              >
+                GitHub
+              </a>
+              <a
+                href={`mailto:${t.email}?subject=Consulta desde la web&body=Hola, quisiera más información sobre...`}
+                className="inline-block border border-slate-700 text-slate-200 px-4 py-2 rounded-xl hover:bg-slate-700/30 transition no-underline"
+              >
+                {lang === "es" ? "Enviar correo" : "Send email"}
+              </a>
+
+
+            </div>
+          </motion.div>
+          <motion.aside
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.45 }}
+            className="bg-slate-800 rounded-2xl p-6 shadow-lg text-center"
+          >
+            <div className="w-28 h-28 rounded-full bg-sky-500 text-black mx-auto flex items-center justify-center text-3xl font-bold mb-4 transform transition-transform duration-300 hover:scale-110">
+              <img src="/public/jaime.jpg" alt="Jaime Molina Granados" className="rounded-full" />
+            </div>
+            <div className="font-semibold">{t.title}</div>
+            <div className="text-slate-400 text-sm">{t.location}</div>
+
+            <div className="mt-4 text-xs text-slate-400">
+              <div>{t.email}</div>
+              <div className="mt-1">{t.phone}</div>
+            </div>
+
+            <div className="mt-4 flex flex-col gap-2">
+              <a
+                href={`https://github.com/${githubUser}`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm px-3 py-2 rounded-md bg-slate-900/40 hover:bg-sky-500/10 transition no-underline"
+              >
+                GitHub
+              </a>
+              <a
+                href={CV_PDF_URL}
+                className="text-sm px-3 py-2 rounded-md bg-slate-900/40 hover:bg-sky-500/10 transition no-underline"
+              >
+                {lang === "es" ? "Ver CV" : "View CV"}
+              </a>
+            </div>
+          </motion.aside>
+        </section>
+
+        {/* Projects Section */}
+        <section id="projects" className="mt-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-3xl font-bold text-sky-400 mb-6"
+          >
+            {t.sections.projects}
+          </motion.h2>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {t.projects.map((p, i) => (
+              <motion.article
+                key={p.title + i}
+                whileHover={{ y: -6 }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={sectionVariant}
+                className="bg-slate-800 rounded-2xl p-6 shadow-lg"
+              >
+                <h3 className="text-lg font-semibold mb-2">{p.title}</h3>
+                <p className="text-slate-400 text-sm mb-4">{p.desc}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {p.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs px-2 py-1 bg-sky-400/10 text-sky-300 rounded-md"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                {p.link && (
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm text-sky-300 hover:underline"
+                  >
+                    {lang === "es" ? "Ver proyecto" : "View project"}
+                  </a>
+                )}
+              </motion.article>
+            ))}
+
+            {/* Placeholder to link to GitHub */}
+            <motion.div
+              className="bg-slate-800/30 rounded-2xl border border-dashed border-slate-700 p-6 flex items-center justify-center"
+              whileHover={{ scale: 1.02 }}
+            >
+              <a
+                href={`https://github.com/${githubUser}`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-sky-300"
+              >
+                {t.moreOnGitHub}
+              </a>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Experience Section */}
+        <section id="experience" className="mt-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-3xl font-bold mb-6"
+          >
+            {t.sections.experience}
+          </motion.h2>
+
+          <div className="space-y-4">
+            {t.experiences.map((exp, idx) => (
+              <motion.div
+                key={exp.role + idx}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={sectionVariant}
+                className="bg-slate-800 rounded-2xl p-5 shadow-md"
+              >
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h4 className="font-semibold text-lg">{exp.role}</h4>
+                    <div className="text-sm text-slate-400">{exp.company}</div>
+                  </div>
+                  <div className="text-xs text-slate-500">{exp.dates}</div>
+                </div>
+
+                <ul className="mt-3 text-slate-400 list-disc list-inside space-y-1 text-sm">
+                  {exp.bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Education Section */}
+        <section id="education" className="mt-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-3xl font-bold mb-6 text-sky-400"
+          >
+            {t.sections.education}
+          </motion.h2>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {t.education.map((edu, i) => (
+              <motion.div
+                key={edu.title + i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={sectionVariant}
+                className="bg-slate-800 rounded-2xl p-5 shadow-md"
+              >
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h4 className="font-semibold">{edu.title}</h4>
+                    <div className="text-sm text-slate-400">{edu.org}</div>
+                    {edu.note && <div className="text-xs text-slate-500 mt-1">{edu.note}</div>}
+                    {edu.web && (
+                      <a
+                        href={edu.web}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs text-sky-300 mt-2 inline-block"
+                      >
+                        {edu.web}
+                      </a>
+                    )}
+                    <div className="text-xs text-slate-500">{edu.dates}</div>
+                  </div>
+                </div>
+
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Certifications Section */}
+        <section className="mt-12">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-2xl font-bold mb-4"
+          >
+            {t.sections.certifications}
+          </motion.h2>
+
+          <div className="flex flex-wrap gap-3">
+            {t.certifications.map((c, i) => (
+              <div
+                key={c.title + i}
+                className="bg-slate-800 rounded-lg px-4 py-2 text-sm text-slate-300"
+              >
+                <div className="font-medium">{c.title}</div>
+                <div className="text-xs text-slate-500">{c.date}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Skills Section */}
+        <section id="skills" className="mt-12">
+          {/* Título Habilidades en Español */}
+          <motion.h2
+            initial={{ opacity: 0, y: 6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-3xl font-bold mb-6"
+          >
+            {lang === "es" ? "Habilidades" : "Skills"}
+          </motion.h2>
+
+          {/* Habilidades en español */}
+          {lang === "es" && (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Lenguajes</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.languages.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Web</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.web.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Bases de Datos</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.db.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Herramientas</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.tools.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Diseño</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.design.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Sistemas</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.systems.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Habilidades en inglés */}
+          {lang === "en" && (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Languages</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.languages.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Web</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.web.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Databases</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.db.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Tools</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.tools.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Design</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.design.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Systems</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.systems.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="mt-12 mb-12">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-3xl font-bold mb-6"
+          >
+            {t.sections.contact}
+          </motion.h2>
+
+          <div className="bg-slate-800 rounded-2xl p-6 shadow-lg flex flex-col md:flex-row gap-6 items-center justify-between">
+            <div>
+              <div className="text-xl font-semibold">{t.name}</div>
+              <div className="text-slate-400 text-sm">{t.title} — {t.location}</div>
+
+              <div className="mt-4 text-slate-300">
+                <div><strong>Email:</strong> <a className="text-sky-300" href={`mailto:${t.email}`}>{t.email}</a></div>
+                <div className="mt-1"><strong>Phone:</strong> <span>{t.phone}</span></div>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <a
+                href={`https://github.com/${githubUser}`}
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-lg bg-sky-500 text-black font-medium hover:bg-sky-600 transition no-underline"
+              >
+                GitHub
+              </a>
+              <a
+                href={CV_PDF_URL}
+                className="px-4 py-2 rounded-lg border border-slate-700 text-slate-200 hover:bg-slate-700/30 transition no-underline"
+              >
+                {lang === "es" ? "Descargar CV" : "Download CV"}
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="text-center text-slate-500 text-sm py-6 border-t border-slate-700/30">
+        © {new Date().getFullYear()} {t.name} — {lang === "es" ? "Todos los derechos reservados." : "All rights reserved."}
+      </footer>
+    </div>
+  );
+}

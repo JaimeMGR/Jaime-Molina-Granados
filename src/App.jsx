@@ -633,11 +633,14 @@ export default function App() {
                 GitHub
               </a>
               <a
-                href={CV_PDF_URL}
+                href={`https://www.linkedin.com/in/jaime-molina-granados-a27794138`}
+                target="_blank"
+                rel="noreferrer"
                 className="text-sm px-3 py-2 rounded-md bg-slate-900/40 hover:bg-sky-500/10 transition no-underline"
               >
-                {lang === "es" ? "Ver CV" : "View CV"}
+                LinkedIn
               </a>
+
             </div>
           </motion.aside>
 
@@ -989,22 +992,31 @@ export default function App() {
 
             <div className="flex gap-3">
               <a
+                href={CV_PDF_URL}
+                className="px-4 py-2 rounded-lg bg-sky-500 text-black font-medium hover:bg-sky-600 transition no-underline"
+              >
+                {lang === "es" ? "Descargar CV" : "Download CV"}
+              </a>
+              <a
                 href={`https://github.com/${githubUser}`}
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 rounded-lg bg-sky-500 text-black font-medium hover:bg-sky-600 transition no-underline"
+                className="inline-block border border-sky-500 text-sky-300 px-4 py-2 rounded-xl hover:bg-sky-500/10 transition no-underline"
               >
                 GitHub
               </a>
               <a
-                href={CV_PDF_URL}
+                href="https://www.linkedin.com/in/jaime-molina-granados-a27794138"
+                target="_blank"
+                rel="noreferrer"
                 className="px-4 py-2 rounded-lg border border-slate-700 text-slate-200 hover:bg-slate-700/30 transition no-underline"
               >
-                {lang === "es" ? "Descargar CV" : "Download CV"}
+                LinkedIn
               </a>
             </div>
           </div>
         </section>
+
       </main>
 
       <footer className="text-center text-slate-500 text-sm py-6 border-t border-slate-700/30">

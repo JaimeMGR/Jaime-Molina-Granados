@@ -57,7 +57,7 @@ const data = {
       },
       {
         role: "Diseñador gráfico",
-        company: "Property Partners Pheeland Herterich (Erasmus+)",
+        company: "Property Partners Phelan Herterich (Erasmus+)",
         dates: "06/2021 – 08/2021",
         bullets: [
           "Diseño de material publicitario y edición de imágenes y vídeos utilizando Canva y Adobe Photoshop.",
@@ -360,7 +360,7 @@ const data = {
       },
       {
         role: "Graphic designer",
-        company: "Property Partners Pheeland Herterich (Erasmus+)",
+        company: "Property Partners Phelan Herterich (Erasmus+)",
         dates: "06/2021 – 08/2021",
         bullets: [
           "Design of advertising material and image/video editing using Canva and Adobe Photoshop.",

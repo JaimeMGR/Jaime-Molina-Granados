@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "./index.css";
+import { ContactButton } from "./components/ContactButton";
 
 
 const githubUser = "JaimeMGR";
@@ -770,12 +771,8 @@ export default function App() {
               >
                 {lang === "es" ? "Descargar CV" : "Download CV"}
               </a>
-              <a
-                href={`mailto:${t.email}?subject=Consulta desde la web&body=Hola, quisiera más información sobre...`}
-                className="inline-block border border-slate-700 text-slate-200 px-4 py-2 rounded-xl hover:bg-slate-700/30 transition no-underline"
-              >
-                {lang === "es" ? "Enviar correo" : "Send email"}
-              </a>
+              <ContactButton lang={lang} />
+
 
 
             </div>
@@ -953,7 +950,7 @@ export default function App() {
 
               </motion.div>
             ))}
-            
+
           </div>
         </section>
 
@@ -1233,11 +1230,7 @@ export default function App() {
               <div className="text-xl font-semibold">{t.name}</div>
               <div className="text-slate-400 text-sm">{t.title} — {t.location}</div>
 
-              <div className="mt-4 text-slate-300">
-                <div><strong>Email:</strong> <a className="text-sky-300" href={`mailto:${t.email}`}>{t.email}</a></div>
-                <div><strong>Linkedin:</strong><a className="text-sky-300" href="https://www.linkedin.com/in/jaime-molina-granados-a27794138">{lang === "es" ? " Haz clic aquí" : " Click here"}</a>
-                </div>
-              </div>
+
             </div>
 
             <div className="flex gap-3">

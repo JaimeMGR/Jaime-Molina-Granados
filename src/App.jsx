@@ -208,64 +208,64 @@ const data = {
     ],
     skills: {
       languages: [
-        "JavaScript",
-        "Java",
-        "PHP",
+        "⭐ JavaScript",
+        "⭐ Java",
+        "⭐ PHP",
         "Python",
         "C#",
-        "SQL"
+        "⭐ SQL"
       ],
       web: [
-        "HTML5",
-        "CSS3",
+        "⭐ HTML5",
+        "⭐ CSS3",
         "React",
         "Node.js",
-        "Tailwind CSS",
+        "⭐ Tailwind CSS",
         "Bootstrap",
         "Microservicios",
         "Java API",
-        "API CRUD",
-        "Desarrollo de aplicaciones PHP",
+        "⭐ API CRUD",
+        "⭐ Desarrollo de aplicaciones PHP",
         "JSON",
         "XML",
-        "WordPress",
-        "WooCommerce",
-        "Joomla",
+        "⭐ WordPress",
+        "⭐ WooCommerce",
+        "⭐ Joomla",
         "Drupal",
         "Moodle",
-        "JetEngine"
+        "⭐ JetEngine"
       ],
       multiplataforma: [
-        "Kotlin",
+        "⭐ Kotlin",
         "Desarrollo Android",
         "Android",
         "iOS",
-        "Android Studio",
+        "⭐ Android Studio",
         "Docker"
       ],
       db: [
-        "MySQL",
+        "⭐ MySQL",
         "PostgreSQL",
         "MongoDB",
-        "Firebase",
-        "Oracle",
+        "⭐ Firebase",
+        "⭐ Oracle",
         "NoSQL"
       ],
       tools: [
-        "Git",
-        "GitHub",
+        "⭐ Git",
+        "⭐ GitHub",
         "GitLab",
-        "IntelliJ IDEA",
-        "Eclipse",
-        "XAMPP",
+        "⭐ IntelliJ IDEA",
+        "⭐ Eclipse",
+        "⭐ XAMPP",
         "Slack",
         "Trello",
         "Jira",
         "Microsoft Office",
-        "Office 365",
+        "⭐ Office 365",
         "Google Docs",
         "LibreOffice",
-        "OBS",
+        "⭐ OBS",
         "Shotcut"
       ],
       design: [
@@ -275,27 +275,27 @@ const data = {
         "Diseño de interfaces",
         "Diseño de logotipos",
         "Photoshop",
-        "Adobe XD",
-        "GIMP",
-        "Canva",
+        "⭐ Adobe XD",
+        "⭐ GIMP",
+        "⭐ Canva",
         "Blender",
         "Publicidad en internet",
         "Google Ads"
       ],
       systems: [
-        "Windows",
-        "Linux",
+        "⭐ Windows",
+        "⭐ Linux",
         "Windows Server",
         "Mac",
         "Arquitectura de redes",
         "Redes inalámbricas",
         "Gestión de redes",
         "Seguridad informática",
-        "Mantenimiento de equipos informáticos"
+        "⭐ Mantenimiento de equipos informáticos"
       ],
       methodologies: [
-        "Metodologías ágiles",
-        "SCRUM",
+        "⭐ Metodologías ágiles",
+        "⭐ SCRUM",
         "Gestión de proyectos",
         "AI (Inteligencia Artificial)",
         "Trabajo en equipo",
@@ -518,64 +518,64 @@ const data = {
     ],
     skills: {
       languages: [
-        "JavaScript",
-        "Java",
-        "PHP",
+        "⭐ JavaScript",
+        "⭐ Java",
+        "⭐ PHP",
         "Python",
         "C#",
-        "SQL"
+        "⭐ SQL"
       ],
       web: [
-        "HTML5",
-        "CSS3",
+        "⭐ HTML5",
+        "⭐ CSS3",
         "React",
         "Node.js",
-        "Tailwind CSS",
+        "⭐ Tailwind CSS",
         "Bootstrap",
         "Microservices",
         "Java API",
-        "API CRUD",
-        "PHP Applications Development",
+        "⭐ API CRUD",
+        "⭐ PHP Applications Development",
         "JSON",
         "XML",
-        "WordPress",
-        "WooCommerce",
-        "Joomla",
+        "⭐ WordPress",
+        "⭐ WooCommerce",
+        "⭐ Joomla",
         "Drupal",
         "Moodle",
-        "JetEngine"
+        "⭐ etEngine"
       ],
       multiplataforma: [
-        "Kotlin",
+        "⭐ Kotlin",
         "Android Development",
         "Android",
         "iOS",
-        "Android Studio",
+        "⭐ Android Studio",
         "Docker"
       ],
       db: [
-        "MySQL",
+        "⭐ MySQL",
         "PostgreSQL",
         "MongoDB",
-        "Firebase",
-        "Oracle",
+        "⭐ Firebase",
+        "⭐ Oracle",
         "NoSQL"
       ],
       tools: [
-        "Git",
-        "GitHub",
+        "⭐ Git",
+        "⭐ GitHub",
         "GitLab",
-        "IntelliJ IDEA",
-        "Eclipse",
-        "XAMPP",
+        "⭐ IntelliJ IDEA",
+        "⭐ Eclipse",
+        "⭐ XAMPP",
         "Slack",
         "Trello",
         "Jira",
         "Microsoft Office",
-        "Office 365",
+        "⭐ Office 365",
         "Google Docs",
         "LibreOffice",
-        "OBS",
+        "⭐ OBS",
         "Shotcut"
       ],
       design: [
@@ -585,27 +585,27 @@ const data = {
         "Interface Design",
         "Logo Design",
         "Photoshop",
-        "Adobe XD",
-        "GIMP",
-        "Canva",
+        "⭐ Adobe XD",
+        "⭐ GIMP",
+        "⭐ Canva",
         "Blender",
         "Online Advertising",
         "Google Ads"
       ],
       systems: [
-        "Windows",
-        "Linux",
+        "⭐ Windows",
+        "⭐ Linux",
         "Windows Server",
         "Mac",
         "Network Architecture",
         "Wireless Networks",
         "Network Management",
         "Cybersecurity",
-        "Computer Maintenance"
+        "⭐ Computer Maintenance"
       ],
       methodologies: [
-        "Agile Methodologies",
-        "SCRUM",
+        "⭐ Agile Methodologies",
+        "⭐ SCRUM",
         "Project Management",
         "AI (Artificial Intelligence)",
         "Teamwork",
@@ -676,7 +676,7 @@ export default function App() {
 
             <button
               onClick={() => setLang(lang === "es" ? "en" : "es")}
-              className="ml-4 px-3 py-1 rounded-xl bg-slate-800/60 hover:bg-sky-500 transition text-xs"
+              className="ml-4 px-3 py-1 rounded-xl bg-slate-800/60 hover:bg-yellow-400 transition text-xs"
               aria-label="Cambiar idioma"
             >
               {lang === "es" ? "🇬🇧 English" : "🇪🇸 Español"}
@@ -731,7 +731,7 @@ export default function App() {
 
             <button
               onClick={() => setLang(lang === "es" ? "en" : "es")}
-              className="mt-4 px-3 py-1 rounded-xl bg-slate-800/60 hover:bg-sky-500 transition text-xs"
+              className="mt-4 px-3 py-1 rounded-xl bg-slate-800/60 hover:bg-yellow-500 transition text-xs"
               aria-label="Cambiar idioma"
             >
               {lang === "es" ? "🇬🇧 English" : "🇪🇸 Español"}
@@ -983,7 +983,7 @@ export default function App() {
               >
                 <div className="flex flex-row gap-2">
                   <div className="flex-1">
-                    <h5 className="font-semibold text-lg">{edu.title}</h5>
+                    <h4 className="font-semibold text-lg">{edu.title}</h4>
                     <div className="text-sm text-slate-400">{edu.org}</div>
                     <div className="text-xs text-slate-500">{edu.dates}</div>
                   </div>

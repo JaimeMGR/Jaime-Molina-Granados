@@ -798,22 +798,42 @@ export default function App() {
 
 
             <div className="mt-4 flex flex-col gap-2">
-              <a
-                href={`https://github.com/${githubUser}`}
+              <a href="https://github.com/JaimeMGR"
                 target="_blank"
                 rel="noreferrer"
-                className="text-sm px-3 py-2 rounded-md bg-slate-900/40 hover:bg-sky-500/10 transition no-underline"
-              >
+                class="flex items-center justify-center gap-2 bg-[#2ea44f] hover:bg-[#2c974b] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-sm border border-[#2c974b] transition">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+                  <path d="M8 0C3.58 0 0 3.58 0 8a8.003 8.003 0 005.47 7.59c.4.07.55-.17.55-.38 
+    0-.19-.01-.82-.01-1.49-2 .37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+    0-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2
+    -3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.1 0 0 .67-.22 2.2.82
+    A7.5 7.5 0 018 4.84c.68 0 1.36.09 2 .26 1.53-1.04 2.2-.82 2.2-.82.44 1.09.16 1.9.08
+    2.1.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.74.54 1.49 
+    0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.003 8.003 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
                 GitHub
               </a>
-              <a
-                href={`https://www.linkedin.com/in/jaime-molina-granados-a27794138`}
+
+              <a href="https://www.linkedin.com/in/jaime-molina-granados-a27794138"
                 target="_blank"
                 rel="noreferrer"
-                className="text-sm px-3 py-2 rounded-md bg-slate-900/40 hover:bg-sky-500/10 transition no-underline"
-              >
+                class="flex items-center justify-center gap-2 bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-sm border border-[#004182] transition">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-4 h-4">
+                  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 
+    16 1.146v13.708c0 .633-.526 1.146-1.175 
+    1.146H1.175C.526 16 0 15.487 0 
+    14.854V1.146zM4.943 13.569V6.169H2.542v7.4h2.401zm-1.2-8.43c.837 
+    0 1.358-.554 1.358-1.248-.015-.709-.52-1.247-1.341-1.247S2.4 
+    3.182 2.4 3.891c0 .694.52 1.248 1.326 
+    1.248h.017zM13.458 13.569V9.359c0-2.252-1.204-3.301-2.81-3.301-1.295 
+    0-1.872.713-2.197 1.213v-1.04H6.05c.03.688 
+    0 7.338 0 7.338h2.401v-4.099c0-.219.016-.437.08-.593.176-.437.577-.89 
+    1.25-.89.881 0 1.234.671 1.234 
+    1.654v3.928h2.443z"/>
+                </svg>
                 LinkedIn
               </a>
+
 
             </div>
           </motion.aside>
@@ -1223,14 +1243,22 @@ export default function App() {
               >
                 {lang === "es" ? "Descargar CV" : "Download CV"}
               </a>
-              <a
-                href={`https://github.com/${githubUser}`}
+              <a href="https://github.com/JaimeMGR"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-block border border-sky-500 text-sky-300 px-4 py-2 rounded-xl hover:bg-sky-500/10 transition no-underline"
-              >
+                class="flex items-center justify-center gap-2 bg-[#2ea44f] hover:bg-[#2c974b] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-sm border border-[#2c974b] transition">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+                  <path d="M8 0C3.58 0 0 3.58 0 8a8.003 8.003 0 005.47 7.59c.4.07.55-.17.55-.38 
+    0-.19-.01-.82-.01-1.49-2 .37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+    0-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2
+    -3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.1 0 0 .67-.22 2.2.82
+    A7.5 7.5 0 018 4.84c.68 0 1.36.09 2 .26 1.53-1.04 2.2-.82 2.2-.82.44 1.09.16 1.9.08
+    2.1.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.74.54 1.49 
+    0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.003 8.003 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
                 GitHub
               </a>
+
             </div>
           </div>
         </section>

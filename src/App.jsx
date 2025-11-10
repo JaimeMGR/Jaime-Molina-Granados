@@ -796,19 +796,18 @@ export default function App() {
 
             <div className="mt-4 flex flex-col gap-2">
               <a
-                href="https://github.com/JaimeMGR"
+                href={`https://github.com/${githubUser}`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#24292f] hover:bg-[#2ea44f] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-sm  transition"
+                className="flex justify-center items-center gap-2 px-4 py-2 border border-[#0f172a] rounded-xl bg-slate-900/40 hover:bg-sky-500/10 transition text-white no-underline"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4">
-                  <path d="M8 0C3.58 0 0 3.58 0 8a8.003 8.003 0 005.47 7.59c.4.07.55-.17.55-.38 
-    0-.19-.01-.82-.01-1.49-2 .37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
-    0-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2
-    -3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.1 0 0 .67-.22 2.2.82
-    A7.5 7.5 0 018 4.84c.68 0 1.36.09 2 .26 1.53-1.04 2.2-.82 2.2-.82.44 1.09.16 1.9.08
-    2.1.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.74.54 1.49 
-    0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.003 8.003 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  className="w-5 h-5"
+                >
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.85 1.25 1.85 1.25 1.07 1.84 2.8 1.31 3.49 1.01.11-.77.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.97 0-1.32.47-2.4 1.24-3.25-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0112 6.8c1.02.01 2.05.14 3.02.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.85 1.24 1.93 1.24 3.25 0 4.65-2.81 5.66-5.49 5.96.43.38.82 1.12.82 2.26 0 1.63-.01 2.94-.01 3.34 0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
                 </svg>
                 GitHub
               </a>
@@ -890,20 +889,28 @@ export default function App() {
               </motion.article>
             ))}
 
-            {/* Placeholder to link to GitHub */}
             <motion.div
-              className="bg-slate-800/60 rounded-2xl border border-dashed border-slate-700 p-6 flex items-center justify-center"
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center justify-center"
             >
               <a
                 href={`https://github.com/${githubUser}`}
                 target="_blank"
                 rel="noreferrer"
-                className="text-sky-300"
+                className="flex items-center gap-2 px-4 py-2 border border-[#0f172a] rounded-xl bg-slate-900/40 hover:bg-sky-500/10 transition text-white no-underline"
               >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  className="w-5 h-5"
+                >
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.85 1.25 1.85 1.25 1.07 1.84 2.8 1.31 3.49 1.01.11-.77.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.97 0-1.32.47-2.4 1.24-3.25-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0112 6.8c1.02.01 2.05.14 3.02.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.85 1.24 1.93 1.24 3.25 0 4.65-2.81 5.66-5.49 5.96.43.38.82 1.12.82 2.26 0 1.63-.01 2.94-.01 3.34 0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+                </svg>
                 {t.moreOnGitHub}
               </a>
             </motion.div>
+
           </div>
         </section>
 
@@ -1240,20 +1247,20 @@ export default function App() {
               >
                 {lang === "es" ? "Descargar CV" : "Download CV"}
               </a>
+
               <a
-                href="https://github.com/JaimeMGR"
+                href={`https://github.com/${githubUser}`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#24292f] hover:bg-[#2ea44f] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-sm transition"
+                className="flex items-center justify-center gap-2 px-4 py-2 border border-[#3d444d] rounded-xl bg-slate-900/40 hover:bg-sky-500/10 transition text-white"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4">
-                  <path d="M8 0C3.58 0 0 3.58 0 8a8.003 8.003 0 005.47 7.59c.4.07.55-.17.55-.38 
-    0-.19-.01-.82-.01-1.49-2 .37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
-    0-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2
-    -3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.1 0 0 .67-.22 2.2.82
-    A7.5 7.5 0 018 4.84c.68 0 1.36.09 2 .26 1.53-1.04 2.2-.82 2.2-.82.44 1.09.16 1.9.08
-    2.1.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.74.54 1.49 
-    0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.003 8.003 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  className="w-5 h-5"
+                >
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.85 1.25 1.85 1.25 1.07 1.84 2.8 1.31 3.49 1.01.11-.77.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.97 0-1.32.47-2.4 1.24-3.25-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0112 6.8c1.02.01 2.05.14 3.02.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.85 1.24 1.93 1.24 3.25 0 4.65-2.81 5.66-5.49 5.96.43.38.82 1.12.82 2.26 0 1.63-.01 2.94-.01 3.34 0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
                 </svg>
                 GitHub
               </a>

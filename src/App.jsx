@@ -1203,7 +1203,7 @@ export default function App() {
 
               <div className="mt-4 text-slate-300">
                 <div><strong>Email:</strong> <a className="text-sky-300" href={`mailto:${t.email}`}>{t.email}</a></div>
-                <div><strong>Linkedin:</strong><a className="text-sky-300" href="https://www.linkedin.com/in/jaime-molina-granados-a27794138">{lang === "es" ? "Haz clic aquí" : "Click here"}</a>
+                <div><strong>Linkedin:</strong><a className="text-sky-300" href="https://www.linkedin.com/in/jaime-molina-granados-a27794138">{lang === "es" ? " Haz clic aquí" : " Click here"}</a>
                 </div>
                 <div className="mt-1"><strong>Phone:</strong> <span>{t.phone}</span></div>
               </div>

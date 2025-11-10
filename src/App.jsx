@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import "./App.css";
 import "./index.css";
+
 
 const githubUser = "JaimeMGR";
 const CV_PDF_URL = "/JaimeMolinaGranados.pdf";
@@ -29,6 +29,7 @@ const data = {
         role: "Desarrollador web junior",
         company: "Wit Creativo (prácticas)",
         dates: "03/2025 – 06/2025",
+        picture: "empresas/WIT-CREATIVO.png",
         bullets: [
           "Desarrollo y personalización de sitios web con WordPress y Elementor.",
           "Integración de funcionalidades mediante plugins como JetEngine y WooCommerce.",
@@ -40,6 +41,7 @@ const data = {
         role: "Desarrollador full stack junior",
         company: "OYR Solutions (prácticas)",
         dates: "03/2024 – 06/2024",
+        picture: "empresas/oyr.jpeg",
         bullets: [
           "Desarrollo de aplicaciones web full stack con enfoque en UX/UI.",
           "Programación front-end (JavaScript) y back-end (lógica de servidor y BD).",
@@ -50,6 +52,7 @@ const data = {
         role: "Director de IT",
         company: "Love 2 Learn (Erasmus+)",
         dates: "06/2021 – 08/2021",
+        picture: "empresas/L2L.png",
         bullets: [
           "Mantenimiento de equipos informáticos y administración de cuentas.",
           "Soporte técnico y documentación digital en un entorno internacional.",
@@ -59,6 +62,7 @@ const data = {
         role: "Diseñador gráfico",
         company: "Property Partners Phelan Herterich (Erasmus+)",
         dates: "06/2021 – 08/2021",
+        picture: "empresas/ppph.jpg",
         bullets: [
           "Diseño de material publicitario y edición de imágenes y vídeos utilizando Canva y Adobe Photoshop.",
           "Creación de contenido visual para campañas publicitarias.",
@@ -68,6 +72,7 @@ const data = {
         role: "Técnico microinformático",
         company: "TecnoSecond (Prácticas)",
         dates: "03/2021 – 06/2021",
+        picture: "empresas/tecnosecond.jpg",
         bullets: [
           "Reparación, mantenimiento y optimización de equipos informáticos.",
           "Atención al cliente y soporte técnico integral.",
@@ -79,17 +84,18 @@ const data = {
         title: "Grado superior en desarrollo de aplicaciones web",
         org: "Atlántida CIDEP",
         dates: "2021 – 2025",
-        note: "Calificación final 8.08",
+        image: "proyectos/Atlantida.png",
       },
       {
         title: "Grado superior en desarrollo de aplicaciones multiplataforma",
         org: "Atlántida CIDEP",
         dates: "2021 – 2024",
-        note: "Calificación final 7,69",
+        image: "proyectos/Atlantida.png",
       },
       {
         title: "Grado medio en sistemas microinformáticos y redes",
         org: "I.E.S. Aricel",
+        image: "proyectos/ies-aricel.png",
         dates: "2019 – 2021",
       },
     ],
@@ -334,6 +340,7 @@ const data = {
         role: "Junior web developer",
         company: "Wit Creativo (internship)",
         dates: "03/2025 – 06/2025",
+        picture: "empresas/WIT-CREATIVO.png",
         bullets: [
           "Development and customization of WordPress sites using Elementor.",
           "Integrations using plugins such as JetEngine and WooCommerce.",
@@ -344,6 +351,7 @@ const data = {
         role: "Junior full stack developer",
         company: "OYR Solutions (internship)",
         dates: "03/2024 – 06/2024",
+        picture: "empresas/oyr.jpeg",
         bullets: [
           "Full stack web development with UX/UI focus.",
           "Front-end (JavaScript) and back-end logic and databases.",
@@ -353,6 +361,7 @@ const data = {
         role: "IT Director",
         company: "Love 2 Learn (summer)",
         dates: "06/2021 – 08/2021",
+        picture: "empresas/L2L.png",
         bullets: [
           "Maintenance of IT equipment and account administration.",
           "Technical support and documentation in an international environment.",
@@ -362,6 +371,7 @@ const data = {
         role: "Graphic designer",
         company: "Property Partners Phelan Herterich (Erasmus+)",
         dates: "06/2021 – 08/2021",
+        picture: "empresas/ppph.jpg",
         bullets: [
           "Design of advertising material and image/video editing using Canva and Adobe Photoshop.",
           "Creation of visual content for advertising campaigns.",
@@ -371,6 +381,7 @@ const data = {
         role: "Microcomputer technician",
         company: "TecnoSecond (internship)",
         dates: "03/2021 – 06/2021",
+        picture: "empresas/tecnosecond.jpg",
         bullets: [
           "Repair, maintenance and optimization of computer equipment.",
           "Customer service and comprehensive technical support.",
@@ -382,18 +393,20 @@ const data = {
         title: "Higher degree in web application development (DAW)",
         org: "Atlántida CIDEP",
         dates: "2021 – 2025",
-        note: "Final grade 8.08",
+        image: "proyectos/Atlantida.png",
       },
       {
         title: "Higher degree in multiplatform application development (DAM)",
         org: "Atlántida CIDEP",
         dates: "2021 – 2024",
-        note: "Final grade 7.69",
+        image: "proyectos/Atlantida.png",
       },
       {
         title: "Intermediate degree in microcomputer systems and networks (ASIR)",
         org: "I.E.S. Aricel",
         dates: "2019 – 2021",
+        image: "proyectos/ies-aricel.png",
+
       },
     ],
     projects: [
@@ -662,7 +675,7 @@ export default function App() {
 
             <button
               onClick={() => setLang(lang === "es" ? "en" : "es")}
-              className="ml-4 px-3 py-1 rounded-xl bg-slate-800 hover:bg-sky-500 transition text-xs"
+              className="ml-4 px-3 py-1 rounded-xl bg-slate-800/60 hover:bg-sky-500 transition text-xs"
               aria-label="Cambiar idioma"
             >
               {lang === "es" ? "🇬🇧 English" : "🇪🇸 Español"}
@@ -717,7 +730,7 @@ export default function App() {
 
             <button
               onClick={() => setLang(lang === "es" ? "en" : "es")}
-              className="mt-4 px-3 py-1 rounded-xl bg-slate-800 hover:bg-sky-500 transition text-xs"
+              className="mt-4 px-3 py-1 rounded-xl bg-slate-800/60 hover:bg-sky-500 transition text-xs"
               aria-label="Cambiar idioma"
             >
               {lang === "es" ? "🇬🇧 English" : "🇪🇸 Español"}
@@ -758,14 +771,6 @@ export default function App() {
                 {lang === "es" ? "Descargar CV" : "Download CV"}
               </a>
               <a
-                href={`https://github.com/${githubUser}`}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-block border border-sky-500 text-sky-300 px-4 py-2 rounded-xl hover:bg-sky-500/10 transition no-underline"
-              >
-                GitHub
-              </a>
-              <a
                 href={`mailto:${t.email}?subject=Consulta desde la web&body=Hola, quisiera más información sobre...`}
                 className="inline-block border border-slate-700 text-slate-200 px-4 py-2 rounded-xl hover:bg-slate-700/30 transition no-underline"
               >
@@ -779,7 +784,7 @@ export default function App() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.45 }}
-            className="bg-slate-800 rounded-2xl p-6 shadow-lg text-center"
+            className="bg-slate-800/60 rounded-2xl p-6 shadow-lg text-center"
           >
             <div className="w-28 h-28 rounded-full bg-sky-500 text-black mx-auto flex items-center justify-center text-3xl font-bold mb-4 transform transition-transform duration-300 hover:scale-110">
               <img src="jaime.jpg" alt="Jaime Molina Granados" className="rounded-full" />
@@ -789,7 +794,6 @@ export default function App() {
 
             <div className="mt-4 text-xs text-slate-400">
               <div>{t.email}</div>
-              <div className="mt-1">{t.phone}</div>
             </div>
 
 
@@ -836,7 +840,7 @@ export default function App() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={sectionVariant}
-                className="bg-slate-800 rounded-2xl p-6 shadow-lg"
+                className="bg-slate-800/60 rounded-2xl p-6 shadow-lg"
               >
                 <h3 className="text-lg font-semibold mb-2">{p.title}</h3>
                 <p className="text-slate-400 text-sm mb-4">{p.desc}</p>
@@ -865,7 +869,7 @@ export default function App() {
 
             {/* Placeholder to link to GitHub */}
             <motion.div
-              className="bg-slate-800/30 rounded-2xl border border-dashed border-slate-700 p-6 flex items-center justify-center"
+              className="bg-slate-800/60 rounded-2xl border border-dashed border-slate-700 p-6 flex items-center justify-center"
               whileHover={{ scale: 1.02 }}
             >
               <a
@@ -890,7 +894,7 @@ export default function App() {
             {t.sections.experience}
           </motion.h2>
 
-          <div className="space-y-4">
+          <div className="grid sm:grid-cols-2 gap-6">
             {t.experiences.map((exp, idx) => (
               <motion.div
                 key={exp.role + idx}
@@ -898,24 +902,34 @@ export default function App() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={sectionVariant}
-                className="bg-slate-800 rounded-2xl p-5 shadow-md"
+                className="bg-slate-800/60 rounded-2xl px-5 py-4 shadow-md"
               >
-                <div className="flex justify-between items-start">
-                  <div>
+                <div className="flex flex-row gap-2">
+                  <div className="flex-1">
                     <h4 className="font-semibold text-lg">{exp.role}</h4>
                     <div className="text-sm text-slate-400">{exp.company}</div>
                     <div className="text-xs text-slate-500">{exp.dates}</div>
                   </div>
 
+                  <div>
+                    <img src={exp.picture} className="w-20 rounded-2xl"></img>
+                  </div>
+
+                </div>
+                <div className="pt-3 px-0">
+                  <ul className="ps-0 space-y-1 text-slate-400 list-disc list-inside">
+                    {exp.bullets.map((b, i) => (
+                      <li key={i}>{b}</li>
+                    ))}
+                  </ul>
                 </div>
 
-                <ul className="mt-3 text-slate-400 list-disc list-inside space-y-1 text-sm">
-                  {exp.bullets.map((b, i) => (
-                    <li key={i}>{b}</li>
-                  ))}
-                </ul>
+
               </motion.div>
             ))}
+            {/* <Timeline>
+
+            </Timeline> */}
           </div>
         </section>
 
@@ -929,7 +943,7 @@ export default function App() {
             {t.sections.education}
           </motion.h2>
 
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-1 gap-6">
             {t.education.map((edu, i) => (
               <motion.div
                 key={edu.title + i}
@@ -937,25 +951,19 @@ export default function App() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={sectionVariant}
-                className="bg-slate-800 rounded-2xl p-5 shadow-md"
+                className="bg-slate-800/60 rounded-2xl p-5 shadow-md"
               >
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h5 className="font-semibold">{edu.title}</h5>
+                <div className="flex flex-row gap-2">
+                  <div className="flex-1">
+                    <h5 className="font-semibold text-lg">{edu.title}</h5>
                     <div className="text-sm text-slate-400">{edu.org}</div>
-                    {edu.note && <div className="text-xs text-slate-500 mt-1">{edu.note}</div>}
-                    {edu.web && (
-                      <a
-                        href={edu.web}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-xs text-sky-300 mt-2 inline-block"
-                      >
-                        {edu.web}
-                      </a>
-                    )}
                     <div className="text-xs text-slate-500">{edu.dates}</div>
                   </div>
+
+                  <div>
+                    <img src={edu.image} className="w-20 rounded-2xl"></img>
+                  </div>
+
                 </div>
 
               </motion.div>
@@ -977,7 +985,7 @@ export default function App() {
             {t.certifications.map((c, i) => (
               <div
                 key={c.title + i}
-                className="bg-slate-800 rounded-lg px-4 py-2 text-sm text-slate-300"
+                className="bg-slate-800/60 rounded-lg px-4 py-2 text-sm text-slate-300"
               >
                 <div className="font-medium">{c.title}</div>
                 <div className="text-xs text-slate-500">{c.date}</div>
@@ -1000,7 +1008,7 @@ export default function App() {
           {/* Habilidades en español */}
           {lang === "es" && (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Lenguajes</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.languages.map((s) => (
@@ -1011,7 +1019,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Web</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.web.map((s) => (
@@ -1022,7 +1030,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Multiplataforma</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.multiplataforma.map((s) => (
@@ -1033,7 +1041,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold mb-2">Bases de datos</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.db.map((s) => (
@@ -1044,7 +1052,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Herramientas</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.tools.map((s) => (
@@ -1055,7 +1063,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Diseño</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.design.map((s) => (
@@ -1066,7 +1074,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Sistemas</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.systems.map((s) => (
@@ -1077,7 +1085,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Metodologías</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.methodologies.map((s) => (
@@ -1093,7 +1101,7 @@ export default function App() {
           {/* Habilidades en inglés */}
           {lang === "en" && (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Languages</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.languages.map((s) => (
@@ -1104,7 +1112,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Web</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.web.map((s) => (
@@ -1115,7 +1123,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Multiplatform</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.multiplataforma.map((s) => (
@@ -1126,7 +1134,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Databases</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.db.map((s) => (
@@ -1137,7 +1145,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Tools</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.tools.map((s) => (
@@ -1148,7 +1156,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Design</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.design.map((s) => (
@@ -1159,7 +1167,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Systems</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.systems.map((s) => (
@@ -1170,7 +1178,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-slate-800 rounded-2xl p-4 shadow-md">
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Methodologies</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.methodologies.map((s) => (
@@ -1196,7 +1204,7 @@ export default function App() {
             {t.sections.contact}
           </motion.h2>
 
-          <div className="bg-slate-800 rounded-2xl p-6 shadow-lg flex flex-col md:flex-row gap-6 items-center justify-between">
+          <div className="bg-slate-800/60 rounded-2xl p-6 shadow-lg flex flex-col md:flex-row gap-6 items-center justify-between">
             <div>
               <div className="text-xl font-semibold">{t.name}</div>
               <div className="text-slate-400 text-sm">{t.title} — {t.location}</div>
@@ -1205,7 +1213,6 @@ export default function App() {
                 <div><strong>Email:</strong> <a className="text-sky-300" href={`mailto:${t.email}`}>{t.email}</a></div>
                 <div><strong>Linkedin:</strong><a className="text-sky-300" href="https://www.linkedin.com/in/jaime-molina-granados-a27794138">{lang === "es" ? " Haz clic aquí" : " Click here"}</a>
                 </div>
-                <div className="mt-1"><strong>Phone:</strong> <span>{t.phone}</span></div>
               </div>
             </div>
 

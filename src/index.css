@@ -1,13 +1,17 @@
 /* index.css */
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Paleta de colores */
 :root {
-  --primary-color: #4b9cd3; /* Azul para enlaces y botones */
-  --secondary-color: #f8f9fa; /* Gris suave para el fondo */
-  --dark-color: #121212; /* Fondo oscuro */
-  --light-color: #f0f0f0; /* Color claro para texto */
-  --highlight-color: #ffb800; /* Amarillo para resaltar */
-  --bg-dark: #181818; /* Fondo ligeramente más claro */
+  --primary-color: #4b9cd3 !important; /* Azul para enlaces y botones */
+  --secondary-color: #f8f9fa !important; /* Gris suave para el fondo */
+  --dark-color: #121212 !important; /* Fondo oscuro */
+  --light-color: #f0f0f0 !important; /* Color claro para texto */
+  --highlight-color: #ffb800 !important; /* Amarillo para resaltar */
+  --bg-dark: #181818 !important; /* Fondo ligeramente más claro */
 }
 
 body {
@@ -49,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Enlaces */
 a {
   color: var(--primary-color);
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:hover {

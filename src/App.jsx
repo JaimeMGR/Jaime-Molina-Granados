@@ -1203,6 +1203,7 @@ export default function App() {
 
               <div className="mt-4 text-slate-300">
                 <div><strong>Email:</strong> <a className="text-sky-300" href={`mailto:${t.email}`}>{t.email}</a></div>
+                <div><strong>Linkedin:</strong> <a className="text-sky-300" href="https://www.linkedin.com/in/jaime-molina-granados-a27794138">Click aquí</a></div>
                 <div className="mt-1"><strong>Phone:</strong> <span>{t.phone}</span></div>
               </div>
             </div>
@@ -1221,14 +1222,6 @@ export default function App() {
                 className="inline-block border border-sky-500 text-sky-300 px-4 py-2 rounded-xl hover:bg-sky-500/10 transition no-underline"
               >
                 GitHub
-              </a>
-              <a
-                href="https://www.linkedin.com/in/jaime-molina-granados-a27794138"
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2 rounded-lg border border-slate-700 text-slate-200 hover:bg-slate-700/30 transition no-underline"
-              >
-                LinkedIn
               </a>
             </div>
           </div>

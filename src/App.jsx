@@ -798,11 +798,13 @@ export default function App() {
 
 
             <div className="mt-4 flex flex-col gap-2">
-              <a href="https://github.com/JaimeMGR"
+              <a
+                href="https://github.com/JaimeMGR"
                 target="_blank"
                 rel="noreferrer"
-                class="flex items-center justify-center gap-2 bg-[#2ea44f] hover:bg-[#2c974b] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-sm border border-[#2c974b] transition">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+                className="flex items-center justify-center gap-2 bg-[#24292f] hover:bg-[#2ea44f] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-sm  transition"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4">
                   <path d="M8 0C3.58 0 0 3.58 0 8a8.003 8.003 0 005.47 7.59c.4.07.55-.17.55-.38 
     0-.19-.01-.82-.01-1.49-2 .37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
     0-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2
@@ -814,11 +816,14 @@ export default function App() {
                 GitHub
               </a>
 
-              <a href="https://www.linkedin.com/in/jaime-molina-granados-a27794138"
+
+              <a
+                href="https://www.linkedin.com/in/jaime-molina-granados-a27794138"
                 target="_blank"
                 rel="noreferrer"
-                class="flex items-center justify-center gap-2 bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-sm border border-[#004182] transition">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-4 h-4">
+                className="flex items-center justify-center gap-2 bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-sm transition"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" className="w-4 h-4">
                   <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 
     16 1.146v13.708c0 .633-.526 1.146-1.175 
     1.146H1.175C.526 16 0 15.487 0 
@@ -833,6 +838,7 @@ export default function App() {
                 </svg>
                 LinkedIn
               </a>
+
 
 
             </div>
@@ -947,9 +953,7 @@ export default function App() {
 
               </motion.div>
             ))}
-            {/* <Timeline>
-
-            </Timeline> */}
+            
           </div>
         </section>
 
@@ -1243,11 +1247,13 @@ export default function App() {
               >
                 {lang === "es" ? "Descargar CV" : "Download CV"}
               </a>
-              <a href="https://github.com/JaimeMGR"
+              <a
+                href="https://github.com/JaimeMGR"
                 target="_blank"
                 rel="noreferrer"
-                class="flex items-center justify-center gap-2 bg-[#2ea44f] hover:bg-[#2c974b] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-sm border border-[#2c974b] transition">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+                className="flex items-center justify-center gap-2 bg-[#24292f] hover:bg-[#2ea44f] text-white text-sm font-semibold px-4 py-2 rounded-md shadow-sm transition"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4">
                   <path d="M8 0C3.58 0 0 3.58 0 8a8.003 8.003 0 005.47 7.59c.4.07.55-.17.55-.38 
     0-.19-.01-.82-.01-1.49-2 .37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
     0-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2
@@ -1258,6 +1264,7 @@ export default function App() {
                 </svg>
                 GitHub
               </a>
+
 
             </div>
           </div>

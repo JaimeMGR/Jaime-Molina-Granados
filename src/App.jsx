@@ -37,6 +37,8 @@ const data = {
           "Edición de contenidos y optimización del rendimiento web.",
           "Gestión de proyectos web de principio a fin.",
         ],
+        recommendation: "Haga clic aquí para leer la carta de recomendación.",
+        recommendationLink: "empresas/recomendacion_Jaime_Molina_Granados_firmado.pdf",
       },
       {
         role: "Desarrollador full stack junior",
@@ -347,6 +349,8 @@ const data = {
           "Integrations using plugins such as JetEngine and WooCommerce.",
           "Content editing and web performance optimization.",
         ],
+        recommendation: "Click here to read the recommendation letter.",
+        recommendationLink: "empresas/recomendacion_Jaime_Molina_Granados_firmado.pdf",
       },
       {
         role: "Junior full stack developer",
@@ -942,9 +946,8 @@ export default function App() {
                   </div>
 
                   <div>
-                    <img src={exp.picture} className="w-20 rounded-2xl"></img>
+                    <img src={exp.picture} className="w-20 rounded-2xl" alt={exp.company} />
                   </div>
-
                 </div>
                 <div className="pt-3 px-0">
                   <ul className="ps-0 space-y-1 text-slate-400 list-disc list-inside">
@@ -954,12 +957,25 @@ export default function App() {
                   </ul>
                 </div>
 
-
+                {/* Añadir la carta de recomendación aquí si existe */}
+                {exp.recommendation && (
+                  <div className="mt-4 text-slate-400 text-sm">
+                    <strong>Recomendación: </strong>
+                    <a
+                      href={exp.recommendationLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sky-400 hover:text-sky-600"
+                    >
+                      {exp.recommendation}
+                    </a>
+                  </div>
+                )}
               </motion.div>
             ))}
-
           </div>
         </section>
+
 
         {/* Education Section */}
         <section id="education" className="mt-12">

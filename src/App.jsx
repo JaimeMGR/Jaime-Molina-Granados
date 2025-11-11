@@ -640,9 +640,11 @@ const sectionVariant = {
   visible: (i = 0) => ({ opacity: 1, y: 0, transition: { delay: i * 0.08 } }),
 };
 
+
 export default function App() {
   const [lang, setLang] = useState("es");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const t = data[lang];
 
   const toggleMenu = () => {
@@ -957,18 +959,55 @@ export default function App() {
                   </ul>
                 </div>
 
-                {/* Añadir la carta de recomendación aquí si existe */}
+                {/* Añadir el botón con icono de carta */}
                 {exp.recommendation && (
                   <div className="mt-4 text-slate-400 text-sm">
-                    <strong>Recomendación: </strong>
-                    <a
-                      href={exp.recommendationLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sky-400 hover:text-sky-600"
+                    <button
+                      onClick={() => setIsPreviewOpen(true)} // Abre la previsualización
+                      className="inline-block bg-sky-500 text-black  font-medium shadow hover:bg-sky-600 transition no-underline inline-flex items-center gap-2 px-4 py-2 text-white rounded-lg"
                     >
-                      {exp.recommendation}
-                    </a>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        className="w-4 h-4"
+                      >
+                        <path d="M19 0H5c-1.1 0-1.99.9-1.99 2L3 22c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zm-2 18H7v-2h10v2zm0-4H7v-2h10v2zm0-4H7V8h10v2z" />
+                      </svg>
+                      Carta de recomendación
+                    </button>
+
+                    {/* Previsualización del PDF */}
+                    {isPreviewOpen && (
+                      <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+                        <div className="bg-white p-4 rounded-lg max-w-3xl w-full">
+                          <div className="flex justify-between items-center mb-4">
+                            <h3 className="text-xl font-semibold text-black">Vista previa de la carta de recomendación</h3>
+                            <button
+                              onClick={() => setIsPreviewOpen(false)}
+                              className="text-red-600 hover:text-red-800"
+                            >
+                              Cerrar
+                            </button>
+                          </div>
+                          <embed
+                            src={exp.recommendationLink}
+                            type="application/pdf"
+                            width="100%"
+                            height="500px"
+                          />
+                          <div className="flex justify-end mt-4">
+                            <a
+                              href={exp.recommendationLink}
+                              download
+                              className="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-lg"
+                            >
+                              Descargar PDF
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </motion.div>

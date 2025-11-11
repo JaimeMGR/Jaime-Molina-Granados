@@ -984,10 +984,17 @@ export default function App() {
                           <div className="flex justify-between items-center mb-4">
                             <h3 className="text-xl font-semibold text-black">Vista previa de la carta de recomendación</h3>
                             <button
-                              onClick={() => setIsPreviewOpen(false)}
+                              onClick={() => setIsPreviewOpen(false)} // Cerrar previsualización
                               className="text-red-600 hover:text-red-800"
                             >
-                              Cerrar
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                                className="w-6 h-6"
+                              >
+                                <path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 10-1.41 1.42L10.59 12l-4.89 4.88a1 1 0 101.41 1.42L12 13.41l4.88 4.89a1 1 0 001.42-1.41L13.41 12l4.89-4.88a1 1 0 000-1.41z" />
+                              </svg>
                             </button>
                           </div>
                           <embed

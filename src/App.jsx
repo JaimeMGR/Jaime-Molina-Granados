@@ -959,7 +959,6 @@ export default function App() {
                   </ul>
                 </div>
 
-                {/* Añadir el botón con icono de carta */}
                 {exp.recommendation && (
                   <div className="mt-4 text-slate-400 text-sm">
                     <button
@@ -979,39 +978,31 @@ export default function App() {
 
                     {/* Previsualización del PDF */}
                     {isPreviewOpen && (
-                      <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-                        <div className="bg-white p-4 rounded-lg max-w-3xl w-full">
-                          <div className="flex justify-between items-center mb-4">
-                            <h3 className="text-xl font-semibold text-black">Vista previa de la carta de recomendación</h3>
-                            <button
-                              onClick={() => setIsPreviewOpen(false)} // Cerrar previsualización
-                              className="text-red-600 hover:text-red-800"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                                className="w-6 h-6"
-                              >
-                                <path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 10-1.41 1.42L10.59 12l-4.89 4.88a1 1 0 101.41 1.42L12 13.41l4.88 4.89a1 1 0 001.42-1.41L13.41 12l4.89-4.88a1 1 0 000-1.41z" />
-                              </svg>
-                            </button>
-                          </div>
-                          <embed
-                            src={exp.recommendationLink}
-                            type="application/pdf"
-                            width="100%"
-                            height="500px"
-                          />
-                          <div className="flex justify-end mt-4">
-                            <a
-                              href={exp.recommendationLink}
-                              download
-                              className="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-lg"
-                            >
-                              Descargar PDF
-                            </a>
-                          </div>
+                      <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex flex-col">
+                        <div className="flex justify-between items-center bg-gray-900 text-white px-6 py-4">
+                          <h3 className="text-xl font-semibold">Carta de recomendación</h3>
+                          <button
+                            onClick={() => setIsPreviewOpen(false)}
+                            className="bg-red-600 hover:bg-red-700 px-3 py-1 rounded-lg"
+                          >
+                            Cerrar
+                          </button>
+                        </div>
+
+                        <embed
+                          src={exp.recommendationLink}
+                          type="application/pdf"
+                          className="flex-1 w-full"
+                        />
+
+                        <div className="flex justify-end bg-gray-900 p-4">
+                          <a
+                            href={exp.recommendationLink}
+                            download
+                            className="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-lg"
+                          >
+                            Descargar PDF
+                          </a>
                         </div>
                       </div>
                     )}

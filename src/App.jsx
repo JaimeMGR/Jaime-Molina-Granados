@@ -54,7 +54,7 @@ const data = {
       {
         role: "Director de IT",
         company: "Love 2 Learn (Erasmus+)",
-        dates: "06/2021 – 08/2021",
+        dates: "06/2022 – 08/2022",
         picture: "empresas/L2L.png",
         bullets: [
           "Mantenimiento de equipos informáticos y administración de cuentas.",
@@ -64,7 +64,7 @@ const data = {
       {
         role: "Diseñador gráfico",
         company: "Property Partners Phelan Herterich (Erasmus+)",
-        dates: "06/2021 – 08/2021",
+        dates: "06/2022 – 08/2022",
         picture: "empresas/ppph.jpg",
         bullets: [
           "Diseño de material publicitario y edición de imágenes y vídeos utilizando Canva y Adobe Photoshop.",
@@ -74,7 +74,7 @@ const data = {
       {
         role: "Técnico microinformático",
         company: "TecnoSecond (Prácticas)",
-        dates: "03/2021 – 06/2021",
+        dates: "03/2022 – 06/2022",
         picture: "empresas/tecnosecond.jpg",
         bullets: [
           "Reparación, mantenimiento y optimización de equipos informáticos.",
@@ -86,20 +86,20 @@ const data = {
       {
         title: "Grado superior en desarrollo de aplicaciones web",
         org: "Atlántida CIDEP",
-        dates: "2021 – 2025",
+        dates: "2022 – 2025",
         image: "proyectos/Atlantida.png",
       },
       {
         title: "Grado superior en desarrollo de aplicaciones multiplataforma",
         org: "Atlántida CIDEP",
-        dates: "2021 – 2024",
+        dates: "2022 – 2024",
         image: "proyectos/Atlantida.png",
       },
       {
         title: "Grado medio en sistemas microinformáticos y redes",
         org: "I.E.S. Aricel",
         image: "proyectos/ies-aricel.png",
-        dates: "2019 – 2021",
+        dates: "2019 – 2022",
       },
     ],
     projects: [

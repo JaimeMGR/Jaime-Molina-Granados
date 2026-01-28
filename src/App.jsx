@@ -365,7 +365,7 @@ const data = {
       {
         role: "IT Director",
         company: "Love 2 Learn (summer)",
-        dates: "06/2021 – 08/2021",
+        dates: "06/2022 – 08/2022",
         picture: "empresas/L2L.png",
         bullets: [
           "Maintenance of IT equipment and account administration.",
@@ -375,7 +375,7 @@ const data = {
       {
         role: "Graphic designer",
         company: "Property Partners Phelan Herterich (Erasmus+)",
-        dates: "06/2021 – 08/2021",
+        dates: "06/2022 – 08/2022",
         picture: "empresas/ppph.jpg",
         bullets: [
           "Design of advertising material and image/video editing using Canva and Adobe Photoshop.",
@@ -385,7 +385,7 @@ const data = {
       {
         role: "Microcomputer technician",
         company: "TecnoSecond (internship)",
-        dates: "03/2021 – 06/2021",
+        dates: "03/2022 – 06/2022",
         picture: "empresas/tecnosecond.jpg",
         bullets: [
           "Repair, maintenance and optimization of computer equipment.",
@@ -397,19 +397,19 @@ const data = {
       {
         title: "Higher degree in web application development (DAW)",
         org: "Atlántida CIDEP",
-        dates: "2021 – 2025",
+        dates: "2022 – 2025",
         image: "proyectos/Atlantida.png",
       },
       {
         title: "Higher degree in multiplatform application development (DAM)",
         org: "Atlántida CIDEP",
-        dates: "2021 – 2024",
+        dates: "2022 – 2024",
         image: "proyectos/Atlantida.png",
       },
       {
         title: "Intermediate degree in microcomputer systems and networks (ASIR)",
         org: "I.E.S. Aricel",
-        dates: "2019 – 2021",
+        dates: "2019 – 2022",
         image: "proyectos/ies-aricel.png",
 
       },

@@ -10,13 +10,13 @@ const CV_PDF_URL = "/JaimeMolinaGranados.pdf";
 const data = {
   es: {
     name: "Jaime Molina Granados",
-    title: "Desarrollador web full stack",
+    title: "Desarrollador Full Stack & Data Engineering",
     location: "Granada, España",
     email: "jaimemg1312@gmail.com",
     phone: "+34 668 533 704",
     ingles: "Inglés: Nivel B2",
     about:
-      "Desarrollador web con experiencia práctica en WordPress, JavaScript y PHP. Me especializo en crear soluciones funcionales enfocadas en la experiencia del usuario y el rendimiento. Interés en proyectos full stack y aplicaciones que integren bases de datos y lógica de servidor.",
+      "Desarrollador web full stack con experiencia en WordPress, JavaScript y PHP, ahora ampliando mi perfil hacia el mundo de los datos. Acabo de completar una certificación en Data Engineering donde he construido un pipeline end-to-end con dbt, Snowflake y Power BI. Me apasiona crear soluciones funcionales: tanto aplicaciones web como pipelines de datos bien diseñados.",
     sections: {
       experience: "Experiencia",
       education: "Formación",
@@ -103,6 +103,22 @@ const data = {
       },
     ],
     projects: [
+            {
+        title: "Steam Games — Pipeline de Data Engineering",
+        desc:
+          "Proyecto final de la certificación en Data Engineering. Pipeline end-to-end sobre 67.000 juegos de Steam con arquitectura medallion (Bronze → Silver → Gold) en Snowflake, transformación con dbt y visualización en Power BI con tema personalizado. Incluye modelos incrementales sobre 400.000+ filas, snapshot SCD-2, testing en tres niveles, macros reutilizables y orquestación con jobs.",
+        tags: [
+          "Data Engineering",
+          "dbt",
+          "Snowflake",
+          "Power BI",
+          "Python",
+          "SQL",
+          "Modelado dimensional",
+        ],
+        link: "https://github.com/JaimeMGR/DBT_LSAT_PROJECT",
+        image: "proyectos/steam-pipeline.png",
+      },
       {
         title: "Mis Repositorios",
         desc:
@@ -295,6 +311,20 @@ const data = {
         "Seguridad informática",
         "⭐ Mantenimiento de equipos informáticos"
       ],
+      data: [
+        "⭐ dbt",
+        "⭐ Snowflake",
+        "⭐ Power BI",
+        "⭐ Python para datos",
+        "⭐ Modelado dimensional",
+        "⭐ Arquitectura medallion",
+        "Apache Airflow",
+        "BigQuery",
+        "Pandas",
+        "ETL/ELT",
+        "Data Warehousing",
+        "Data Marts",
+      ],      
       methodologies: [
         "⭐ Metodologías ágiles",
         "⭐ SCRUM",
@@ -310,6 +340,10 @@ const data = {
     },
     certifications: [
       {
+        title: "Data Engineering: Fundamentos Básicos, SQL, dbt, Snowflake, BigQuery y Power BI - Cívica",
+        date: "05/2026",
+      },
+      {
         title: "App móvil con chat (Kotlin + Firebase) - Udemy",
         date: "29/05/2024",
       },
@@ -323,13 +357,13 @@ const data = {
   },
   en: {
     name: "Jaime Molina Granados",
-    title: "Full stack web developer",
+    title: "Full Stack Developer & Data Engineering",
     location: "Granada, Spain",
     email: "jaimemg1312@gmail.com",
     phone: "+34 668 533 704",
     ingles: "English: Level B2",
     about:
-      "Web developer with hands-on experience in WordPress, JavaScript and PHP. I specialize in creating functional solutions focused on user experience and performance. Interested in full stack projects and apps integrating databases and server logic.",
+      "Full stack web developer with experience in WordPress, JavaScript and PHP, now expanding my profile into the data world. I recently completed a Data Engineering certification where I built an end-to-end pipeline with dbt, Snowflake and Power BI. I'm passionate about building functional solutions: both web applications and well-designed data pipelines.",
     sections: {
       experience: "Experience",
       education: "Education",
@@ -415,6 +449,22 @@ const data = {
       },
     ],
     projects: [
+      {
+        title: "Steam Games — Data Engineering Pipeline",
+        desc:
+          "Final project of the Data Engineering certification. End-to-end pipeline over 67,000 Steam games using medallion architecture (Bronze → Silver → Gold) on Snowflake, transformations with dbt and visualization in Power BI with a custom theme. Includes incremental models over 400,000+ rows, SCD-2 snapshot, three-level testing, reusable macros and job orchestration.",
+        tags: [
+          "Data Engineering",
+          "dbt",
+          "Snowflake",
+          "Power BI",
+          "Python",
+          "SQL",
+          "Dimensional Modeling",
+        ],
+        link: "https://github.com/JaimeMGR/DBT_LSAT_PROJECT",
+        image: "proyectos/steam-pipeline.png",
+      },
       {
         title: "My Repositories",
         desc:
@@ -607,6 +657,20 @@ const data = {
         "Cybersecurity",
         "⭐ Computer Maintenance"
       ],
+      data: [
+        "⭐ dbt",
+        "⭐ Snowflake",
+        "⭐ Power BI",
+        "⭐ Python for data",
+        "⭐ Dimensional Modeling",
+        "⭐ Medallion Architecture",
+        "Apache Airflow",
+        "BigQuery",
+        "Pandas",
+        "ETL/ELT",
+        "Data Warehousing",
+        "Data Marts",
+      ],
       methodologies: [
         "⭐ Agile Methodologies",
         "⭐ SCRUM",
@@ -621,6 +685,10 @@ const data = {
       ]
     },
     certifications: [
+      {
+        title: "Data Engineering: Fundamentals, SQL, dbt, Snowflake, BigQuery and Power BI - Cívica",
+        date: "05/2026",
+      },
       {
         title: "Mobile app with chat (Kotlin + Firebase) - Udemy",
         date: "29/05/2024",
@@ -868,8 +936,17 @@ export default function App() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={sectionVariant}
-                className="bg-slate-800/60 rounded-2xl p-6 shadow-lg"
+                className="bg-slate-800/60 rounded-2xl p-6 shadow-lg flex flex-col"
               >
+                {p.image && (
+                  <div className="mb-4 -mx-6 -mt-6 overflow-hidden rounded-t-2xl">
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      className="w-full h-40 object-cover"
+                    />
+                  </div>
+                )}
                 <h3 className="text-lg font-semibold mb-2">{p.title}</h3>
                 <p className="text-slate-400 text-sm mb-4">{p.desc}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -1167,6 +1244,17 @@ export default function App() {
               </div>
 
               <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Data Engineering</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.data.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
                 <div className="font-semibold capitalize mb-2">Metodologías</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.methodologies.map((s) => (
@@ -1252,6 +1340,17 @@ export default function App() {
                 <div className="font-semibold capitalize mb-2">Systems</div>
                 <div className="flex flex-wrap gap-2">
                   {t.skills.systems.map((s) => (
+                    <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-slate-800/60 rounded-2xl p-4 shadow-md">
+                <div className="font-semibold capitalize mb-2">Data Engineering</div>
+                <div className="flex flex-wrap gap-2">
+                  {t.skills.data.map((s) => (
                     <span key={s} className="text-xs px-2 py-1 rounded-md bg-slate-900/40 text-sky-300">
                       {s}
                     </span>

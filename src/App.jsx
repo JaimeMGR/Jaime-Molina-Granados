@@ -84,6 +84,12 @@ const data = {
     ],
     education: [
       {
+        title: "Certificación en Data Engineering",
+        org: "Cívica · SQL, dbt, Snowflake, BigQuery, Power BI",
+        dates: "03/2026 – 05/2026",
+        image: "proyectos/civica.png",
+      },
+      {
         title: "Grado superior en desarrollo de aplicaciones web",
         org: "Atlántida CIDEP",
         dates: "2022 – 2025",
@@ -340,10 +346,6 @@ const data = {
     },
     certifications: [
       {
-        title: "Data Engineering: Fundamentos Básicos, SQL, dbt, Snowflake, BigQuery y Power BI - Cívica",
-        date: "05/2026",
-      },
-      {
         title: "App móvil con chat (Kotlin + Firebase) - Udemy",
         date: "29/05/2024",
       },
@@ -428,6 +430,12 @@ const data = {
       },
     ],
     education: [
+      {
+        title: "Data Engineering Certification",
+        org: "Cívica · SQL, dbt, Snowflake, BigQuery, Power BI",
+        dates: "03/2026 – 05/2026",
+        image: "proyectos/civica.png",
+      },
       {
         title: "Higher degree in web application development (DAW)",
         org: "Atlántida CIDEP",
@@ -685,10 +693,6 @@ const data = {
       ]
     },
     certifications: [
-      {
-        title: "Data Engineering: Fundamentals, SQL, dbt, Snowflake, BigQuery and Power BI - Cívica",
-        date: "05/2026",
-      },
       {
         title: "Mobile app with chat (Kotlin + Firebase) - Udemy",
         date: "29/05/2024",

@@ -83,6 +83,8 @@ npm run lint       # Ejecuta ESLint
 ---
 
 ## 📂 Estructura del proyecto
+
+```bash
 Jaime-Molina-Granados/
 ├── public/
 │   ├── empresas/          # Logos de empresas donde he trabajado
@@ -100,6 +102,8 @@ Jaime-Molina-Granados/
 ├── vite.config.js
 └── package.json
 ---
+```
+
 
 ## 🎨 Personalización
 

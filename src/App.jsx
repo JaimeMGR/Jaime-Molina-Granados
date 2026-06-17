@@ -358,6 +358,7 @@ const data = {
         date: "29/10/2020",
         recommendation: "Haga clic aquí para leer la carta de certificación.",
         recommendationLink: "certificados/B1JaimeCambridge.pdf",
+        buttontitle: "Carta de certificado"
       }
     ],
     githubReposTitle: "Repos recientes de GitHub",
@@ -708,10 +709,11 @@ const data = {
         date: "10/12/2023",
       },
       {
-        title: "Cambridge English Entry Level Certificate in ESOL International (Entry 3) (Preliminary)",
+        title: "Cambridge English Entry Level Certificate",
         date: "29/10/2020",
         recommendation: "Haga clic aquí para leer la carta de certificación.",
         recommendationLink: "certificados/B1JaimeCambridge.pdf",
+        buttontitle: "Certificate letter"
       }
     ],
     githubReposTitle: "Recent GitHub Repos",
@@ -1177,7 +1179,7 @@ export default function App() {
                       >
                         <path d="M19 0H5c-1.1 0-1.99.9-1.99 2L3 22c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zm-2 18H7v-2h10v2zm0-4H7v-2h10v2zm0-4H7V8h10v2z" />
                       </svg>
-                      Carta de certificado
+                      {c.buttontitle}
                     </button>
 
                     {/* Previsualización del PDF */}

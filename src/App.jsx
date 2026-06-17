@@ -84,7 +84,7 @@ const data = {
     ],
     education: [
       {
-        title: "Certificación en Data Engineering",
+        title: "Data Emgomeeromg: Fundamentos Básicos, SQL, dbt, Snowflake, BigQuery y Power BI",
         org: "Cívica · SQL, dbt, Snowflake, BigQuery, Power BI",
         dates: "03/2026 – 05/2026",
         image: "proyectos/civica.png",
@@ -431,7 +431,7 @@ const data = {
     ],
     education: [
       {
-        title: "Data Engineering Certification",
+        title: "Data Engineering: Basic fundamentals, SQL, dbt, Snowflake, BigQuery and Power BI",
         org: "Cívica · SQL, dbt, Snowflake, BigQuery, Power BI",
         dates: "03/2026 – 05/2026",
         image: "proyectos/civica.png",

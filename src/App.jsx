@@ -1163,7 +1163,7 @@ export default function App() {
               >
                 <div className="font-medium">{c.title}</div>
                 <div className="text-xs text-slate-500">{c.date}</div>
-                                {exp.recommendation && (
+                                {c.recommendation && (
                   <div className="mt-4 text-slate-400 text-sm">
                     <button
                       onClick={() => setIsPreviewOpen(true)} // Abre la previsualización
@@ -1177,7 +1177,7 @@ export default function App() {
                       >
                         <path d="M19 0H5c-1.1 0-1.99.9-1.99 2L3 22c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zm-2 18H7v-2h10v2zm0-4H7v-2h10v2zm0-4H7V8h10v2z" />
                       </svg>
-                      Carta de recomendación
+                      Carta de certificado
                     </button>
 
                     {/* Previsualización del PDF */}
@@ -1194,14 +1194,14 @@ export default function App() {
                         </div>
 
                         <embed
-                          src={exp.recommendationLink}
+                          src={c.recommendationLink}
                           type="application/pdf"
                           className="flex-1 w-full"
                         />
 
                         <div className="flex justify-end bg-gray-900 p-4">
                           <a
-                            href={exp.recommendationLink}
+                            href={c.recommendationLink}
                             download
                             className="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-lg"
                           >

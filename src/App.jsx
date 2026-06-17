@@ -6,6 +6,9 @@ import { ContactButton } from "./components/ContactButton";
 
 const githubUser = "JaimeMGR";
 const CV_PDF_URL = "/JaimeMolinaGranados.pdf";
+const B1_PDF_URL = "/certificados/B1JaimeCambridge.pdf";
+
+
 
 const data = {
   es: {
@@ -109,7 +112,7 @@ const data = {
       },
     ],
     projects: [
-            {
+      {
         title: "Steam Games — Pipeline de Data Engineering",
         desc:
           "Proyecto final de la certificación en Data Engineering. Pipeline end-to-end sobre 67.000 juegos de Steam con arquitectura medallion (Bronze → Silver → Gold) en Snowflake, transformación con dbt y visualización en Power BI con tema personalizado. Incluye modelos incrementales sobre 400.000+ filas, snapshot SCD-2, testing en tres niveles, macros reutilizables y orquestación con jobs.",
@@ -330,7 +333,7 @@ const data = {
         "ETL/ELT",
         "Data Warehousing",
         "Data Marts",
-      ],      
+      ],
       methodologies: [
         "⭐ Metodologías ágiles",
         "⭐ SCRUM",
@@ -352,7 +355,7 @@ const data = {
       {
         title: "Aplicación Android para PDF (Kotlin + Firebase) - Udemy",
         date: "10/12/2023",
-      },      
+      },
       {
         title: "Certificado de nivel B1 en inglés con Cambridge",
         date: "29/10/2020",
@@ -1165,53 +1168,15 @@ export default function App() {
               >
                 <div className="font-medium">{c.title}</div>
                 <div className="text-xs text-slate-500">{c.date}</div>
-                                {c.recommendation && (
+                {c.recommendation && (
                   <div className="mt-4 text-slate-400 text-sm">
-                    <button
-                      onClick={() => setIsPreviewOpen(true)} // Abre la previsualización
-                      className="inline-block bg-sky-500 text-black  font-medium shadow hover:bg-sky-600 transition no-underline inline-flex items-center gap-2 px-4 py-2 text-white rounded-lg"
+                    <a
+                      href={c.recommendationLink}
+                      className="inline-block bg-sky-500 text-black px-4 py-2 rounded-xl font-medium shadow hover:bg-sky-600 transition no-underline"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        className="w-4 h-4"
-                      >
-                        <path d="M19 0H5c-1.1 0-1.99.9-1.99 2L3 22c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zm-2 18H7v-2h10v2zm0-4H7v-2h10v2zm0-4H7V8h10v2z" />
-                      </svg>
-                      {c.buttontitle}
-                    </button>
+                      {lang === "es" ? "Carta de certificado" : "Certificate letter"}
+                    </a>
 
-                    {/* Previsualización del PDF */}
-                    {isPreviewOpen && (
-                      <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex flex-col">
-                        <div className="flex justify-between items-center bg-gray-900 text-white px-6 py-4">
-                          <h3 className="text-xl font-semibold">Carta de recomendación</h3>
-                          <button
-                            onClick={() => setIsPreviewOpen(false)}
-                            className="bg-red-600 hover:bg-red-700 px-3 py-1 rounded-lg"
-                          >
-                            Cerrar
-                          </button>
-                        </div>
-
-                        <embed
-                          src={c.recommendationLink}
-                          type="application/pdf"
-                          className="flex-1 w-full"
-                        />
-
-                        <div className="flex justify-end bg-gray-900 p-4">
-                          <a
-                            href={c.recommendationLink}
-                            download
-                            className="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-lg"
-                          >
-                            Descargar PDF
-                          </a>
-                        </div>
-                      </div>
-                    )}
                   </div>
                 )}
               </div>

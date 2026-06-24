@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "./index.css";
 import { ContactButton } from "./components/ContactButton";
+import { Analytics } from "@vercel/analytics/react";
 
 
 const githubUser = "JaimeMGR";
@@ -1459,6 +1460,7 @@ export default function App() {
       <footer className="text-center text-slate-500 text-sm py-6 border-t border-slate-700/30">
         © {new Date().getFullYear()} {t.name} — {lang === "es" ? "Todos los derechos reservados." : "All rights reserved."}
       </footer>
+      <Analytics />
     </div>
   );
 }

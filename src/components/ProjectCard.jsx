@@ -1,10 +1,15 @@
+import { motion } from "framer-motion";
 
 export function ProjectCard({
   project,
   featured = false,
+  onOpen,
 }) {
   return (
     <motion.article
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       whileHover={{ y: -6 }}
       transition={{ duration: 0.2 }}
       className={`group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/60 shadow-lg ${
@@ -15,10 +20,10 @@ export function ProjectCard({
     >
       {project.image && (
         <div
-          className={`overflow-hidden bg-slate-900/70 ${
+          className={`flex items-center justify-center overflow-hidden bg-slate-950/70 ${
             featured
-              ? "lg:w-5/12"
-              : "aspect-[16/9]"
+              ? "h-[260px] lg:h-auto lg:w-5/12"
+              : "h-44 w-full"
           }`}
         >
           <img
@@ -26,12 +31,8 @@ export function ProjectCard({
               /^\//,
               "",
             )}`}
-            alt={`Captura o logotipo de ${project.title}`}
-            className={`h-full w-full object-cover transition duration-500 group-hover:scale-[1.03] ${
-              featured
-                ? "min-h-[230px] lg:min-h-full"
-                : ""
-            }`}
+            alt={`Imagen de ${project.title}`}
+            className="max-h-full max-w-full object-contain p-5 transition duration-500 group-hover:scale-[1.03]"
             loading={
               featured ? "eager" : "lazy"
             }
@@ -78,19 +79,30 @@ export function ProjectCard({
           ))}
         </div>
 
-        {project.link && (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-auto inline-flex w-fit items-center gap-2 pt-6 text-sm font-medium text-sky-300 transition hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
-          >
-            {project.linkLabel || "Ver proyecto"}
-            <span aria-hidden="true">
-              ↗
-            </span>
-          </a>
-        )}
+        <div className="mt-auto flex flex-wrap items-center gap-4 pt-6">
+          {project.slug && onOpen && (
+            <button
+              type="button"
+              onClick={() => onOpen(project)}
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-700 px-3 py-2 text-sm font-medium text-slate-200 transition hover:border-sky-400/40 hover:bg-sky-400/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+            >
+              {project.detailLabel || "Ver proyecto"}
+              <span aria-hidden="true">→</span>
+            </button>
+          )}
+
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium text-sky-300 transition hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+            >
+              {project.linkLabel || "Ver proyecto"}
+              <span aria-hidden="true">↗</span>
+            </a>
+          )}
+        </div>
       </div>
     </motion.article>
   );

@@ -1,5 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 
+import { SteamGamesDetail } from "./components/SteamGamesDetail";
+import { MaxMangaDetail } from "./components/MaxMangaDetail";
+import { ProjectDetail } from "./components/ProjectDetail";
 import { portfolioData } from "./data/portfolio";
 import { ContactButton } from "./components/ContactButton";
 import { ExperienceCard } from "./components/ExperienceCard";
@@ -21,9 +25,8 @@ function SocialLinks({ data, compact = false }) {
 
   return (
     <div
-      className={`flex flex-wrap gap-3 ${
-        compact ? "justify-center" : ""
-      }`}
+      className={`flex flex-wrap gap-3 ${compact ? "justify-center" : ""
+        }`}
     >
       {links.map((link) => (
         <a
@@ -129,7 +132,8 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] =
     useState(false);
   const [pdfUrl, setPdfUrl] = useState(null);
-
+  const [selectedProject, setSelectedProject] =
+    useState(null);
   const t = portfolioData[lang];
 
   const featuredProjects = useMemo(
@@ -173,6 +177,58 @@ export default function App() {
       );
   }, []);
 
+  useEffect(() => {
+    const syncProjectFromHash = () => {
+      const hash = window.location.hash;
+
+      if (!hash.startsWith("#project=")) {
+        setSelectedProject(null);
+        return;
+      }
+
+      const slug = decodeURIComponent(
+        hash.slice("#project=".length),
+      );
+
+      const project = t.projects.find(
+        (item) => item.slug === slug,
+      );
+
+      setSelectedProject(project || null);
+
+      if (project) {
+        window.scrollTo({
+          top: 0,
+          behavior: "auto",
+        });
+      }
+    };
+
+    syncProjectFromHash();
+
+    window.addEventListener(
+      "hashchange",
+      syncProjectFromHash,
+    );
+
+    window.addEventListener(
+      "popstate",
+      syncProjectFromHash,
+    );
+
+    return () => {
+      window.removeEventListener(
+        "hashchange",
+        syncProjectFromHash,
+      );
+
+      window.removeEventListener(
+        "popstate",
+        syncProjectFromHash,
+      );
+    };
+  }, [t.projects]);
+
   const toggleLanguage = () => {
     setLang((current) =>
       current === "es" ? "en" : "es",
@@ -181,6 +237,63 @@ export default function App() {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const openProject = (project) => {
+    setSelectedProject(project);
+
+    window.history.pushState(
+      {},
+      "",
+      `#project=${project.slug}`,
+    );
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const closeProject = () => {
+    setSelectedProject(null);
+
+    window.history.pushState(
+      {},
+      "",
+      window.location.pathname,
+    );
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const handleNavClick = (event, href) => {
+    closeMenu();
+
+    if (!selectedProject) {
+      return;
+    }
+
+    event.preventDefault();
+
+    setSelectedProject(null);
+
+    window.history.pushState(
+      {},
+      "",
+      window.location.pathname,
+    );
+
+    window.requestAnimationFrame(() => {
+      document
+        .querySelector(href)
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+    });
   };
 
   const navItems = [
@@ -219,6 +332,14 @@ export default function App() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:px-10 lg:px-12">
           <a
             href="#top"
+            onClick={
+              selectedProject
+                ? (event) => {
+                  event.preventDefault();
+                  closeProject();
+                }
+                : undefined
+            }
             className="no-underline"
             aria-label="Inicio"
           >
@@ -247,6 +368,9 @@ export default function App() {
               <a
                 key={item.href}
                 href={item.href}
+                onClick={(event) =>
+                  handleNavClick(event, item.href)
+                }
                 className="rounded-md px-2 py-1 text-sm text-slate-300 transition hover:text-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
               >
                 {item.label}
@@ -306,7 +430,9 @@ export default function App() {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={closeMenu}
+                onClick={(event) =>
+                  handleNavClick(event, item.href)
+                }
                 className="rounded-lg px-3 py-2 text-sm text-slate-200 no-underline transition hover:bg-slate-800 hover:text-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
               >
                 {item.label}
@@ -341,347 +467,373 @@ export default function App() {
         id="main-content"
         className="mx-auto max-w-7xl px-6 py-10 md:px-10 lg:px-12"
       >
-        <section
-          id="top"
-          className="grid items-center gap-10 py-6 md:grid-cols-[1.3fr_0.7fr] md:py-14"
-        >
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.5,
-            }}
-          >
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-sky-400">
-              Full Stack Developer · Data Engineering
-            </p>
-
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl">
-              Hola, soy{" "}
-              <span className="text-sky-400">
-                {t.name}
-              </span>
-            </h1>
-
-            <p className="mt-6 max-w-3xl text-base leading-7 text-slate-400 md:text-lg">
-              {t.about}
-            </p>
-
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a
-                href="#projects"
-                className="inline-flex items-center rounded-xl bg-sky-500 px-5 py-3 font-semibold text-slate-950 no-underline transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
-              >
-                {t.sections.projects}
-              </a>
-
-              <a
-                href={t.cv}
-                className="inline-flex items-center rounded-xl border border-slate-700 px-5 py-3 font-semibold text-slate-100 no-underline transition hover:border-sky-400/40 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
-              >
-                {t.ui.downloadCV}
-              </a>
-
-              <ContactButton
-                label={t.ui.sendEmail}
-              />
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-2">
-              {[
-                "React",
-                "JavaScript",
-                "PHP",
-                "SQL",
-                "Python",
-                "dbt",
-                "Snowflake",
-                "Power BI",
-              ].map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-slate-700/80 bg-slate-900/70 px-3 py-1.5 text-xs font-medium text-slate-300"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.aside
-            initial={{
-              opacity: 0,
-              scale: 0.97,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-            }}
-            transition={{
-              duration: 0.5,
-              delay: 0.1,
-            }}
-            className="rounded-3xl border border-slate-700/60 bg-gradient-to-b from-slate-800/80 to-slate-900/80 p-7 text-center shadow-2xl"
-          >
-            <div className="mx-auto mb-5 h-32 w-32 overflow-hidden rounded-full border-4 border-sky-400/20 bg-sky-500/10 p-1 shadow-xl">
-              <img
-                src="/jaime.jpg"
-                alt={`Foto de ${t.name}`}
-                className="h-full w-full rounded-full object-cover"
-                fetchPriority="high"
-              />
-            </div>
-
-            <h2 className="text-xl font-semibold text-white">
-              {t.title}
-            </h2>
-
-            <p className="mt-1 text-sm text-slate-400">
-              {t.location}
-            </p>
-
-            <p className="mt-3 text-sm text-slate-400">
-              {t.englishLevel}
-            </p>
-
-            <a
-              href={`mailto:${t.email}`}
-              className="mt-2 block text-sm text-sky-300 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+        {selectedProject ? (
+          selectedProject.slug === "maxmanga" ||
+            selectedProject.slug === "maxmanga-community" ? (
+            <MaxMangaDetail
+              project={selectedProject}
+              onBack={closeProject}
+            />
+          ) : selectedProject.slug === "steam-games" ? (
+            <SteamGamesDetail
+              project={selectedProject}
+              lang={lang}
+              onBack={closeProject}
+            />
+          ) : (
+            <ProjectDetail
+              project={selectedProject}
+              lang={lang}
+              onBack={closeProject}
+            />
+          )
+        ) : (
+          <>
+            <section
+              id="top"
+              className="grid items-center gap-10 py-6 md:grid-cols-[1.3fr_0.7fr] md:py-14"
             >
-              {t.email}
-            </a>
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.5,
+                }}
+              >
+                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-sky-400">
+                  Full Stack Developer · Data Engineering
+                </p>
 
-            <div className="mt-6">
-              <SocialLinks
-                data={t}
-                compact
-              />
-            </div>
-          </motion.aside>
-        </section>
+                <h1 className="text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl">
+                  {t.greeting[lang]}{" "}
+                  <span className="text-sky-400">
+                    {t.name}
+                  </span>
+                </h1>
 
-        <section
-          id="projects"
-          className="mt-10 scroll-mt-24"
-        >
-          <SectionTitle>
-            {t.sections.projects}
-          </SectionTitle>
+                <p className="mt-6 max-w-3xl text-base leading-7 text-slate-400 md:text-lg">
+                  {t.about}
+                </p>
 
-          <div className="space-y-6">
-            {featuredProjects.map(
-              (project) => (
-                <ProjectCard
-                  key={project.title}
-                  project={project}
-                  featured
-                />
-              ),
-            )}
-          </div>
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <a
+                    href="#projects"
+                    className="inline-flex items-center rounded-xl bg-sky-500 px-5 py-3 font-semibold text-slate-950 no-underline transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                  >
+                    {t.sections.projects}
+                  </a>
 
-          <div className="mt-12">
-            <h3 className="mb-5 text-xl font-semibold text-white">
-              {t.sections.otherProjects}
-            </h3>
+                  <a
+                    href={t.cv}
+                    className="inline-flex items-center rounded-xl border border-slate-700 px-5 py-3 font-semibold text-slate-100 no-underline transition hover:border-sky-400/40 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                  >
+                    {t.ui.downloadCV}
+                  </a>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {otherProjects.map(
-                (project) => (
-                  <ProjectCard
-                    key={project.title}
-                    project={project}
+                  <ContactButton
+                    label={t.ui.sendEmail}
                   />
-                ),
-              )}
-            </div>
-          </div>
+                </div>
 
-          <div className="mt-7 flex justify-center">
-            <a
-              href={t.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-xl border border-slate-700 bg-slate-900/50 px-5 py-3 text-sm font-medium text-slate-200 no-underline transition hover:border-sky-400/30 hover:bg-sky-400/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
-            >
-              {t.ui.moreOnGitHub}
-            </a>
-          </div>
-        </section>
+                <div className="mt-8 flex flex-wrap gap-2">
+                  {[
+                    "React",
+                    "JavaScript",
+                    "PHP",
+                    "SQL",
+                    "Python",
+                    "dbt",
+                    "Snowflake",
+                    "Power BI",
+                  ].map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-slate-700/80 bg-slate-900/70 px-3 py-1.5 text-xs font-medium text-slate-300"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
 
-        <section
-          id="experience"
-          className="mt-20 scroll-mt-24"
-        >
-          <SectionTitle>
-            {t.sections.experience}
-          </SectionTitle>
+              <motion.aside
+                initial={{
+                  opacity: 0,
+                  scale: 0.97,
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.1,
+                }}
+                className="rounded-3xl border border-slate-700/60 bg-gradient-to-b from-slate-800/80 to-slate-900/80 p-7 text-center shadow-2xl"
+              >
+                <div className="mx-auto mb-5 h-32 w-32 overflow-hidden rounded-full border-4 border-sky-400/20 bg-sky-500/10 p-1 shadow-xl">
+                  <img
+                    src="/jaime.jpg"
+                    alt={`Foto de ${t.name}`}
+                    className="h-full w-full rounded-full object-cover"
+                    fetchpriority="high"
+                  />
+                </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {t.experiences.map(
-              (experience) => (
-                <ExperienceCard
-                  key={`${experience.role}-${experience.company}`}
-                  experience={experience}
-                  onRecommendation={setPdfUrl}
-                  recommendationLabel={
-                    t.ui.recommendation
-                  }
-                />
-              ),
-            )}
-          </div>
-        </section>
+                <h2 className="text-xl font-semibold text-white">
+                  {t.title}
+                </h2>
 
-        <section
-          id="education"
-          className="mt-20 scroll-mt-24"
-        >
-          <SectionTitle>
-            {t.sections.education}
-          </SectionTitle>
+                <p className="mt-1 text-sm text-slate-400">
+                  {t.location}
+                </p>
 
-          <div className="grid gap-5 md:grid-cols-2">
-            {t.education.map(
-              (education) => (
-                <motion.article
-                  key={education.title}
-                  initial={{
-                    opacity: 0,
-                    y: 14,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                  }}
-                  className="rounded-2xl border border-slate-700/60 bg-slate-800/60 p-5 shadow-md"
+                <p className="mt-3 text-sm text-slate-400">
+                  {t.englishLevel}
+                </p>
+
+                <a
+                  href={`mailto:${t.email}`}
+                  className="mt-2 block text-sm text-sky-300 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="min-w-0 flex-1">
-                      <h3 className="text-lg font-semibold text-white">
-                        {education.title}
+                  {t.email}
+                </a>
+
+                <div className="mt-6">
+                  <SocialLinks
+                    data={t}
+                    compact
+                  />
+                </div>
+              </motion.aside>
+            </section>
+
+            <section
+              id="projects"
+              className="mt-10 scroll-mt-24"
+            >
+              <SectionTitle>
+                {t.sections.projects}
+              </SectionTitle>
+
+              <div className="space-y-6">
+                {featuredProjects.map(
+                  (project) => (
+                    <ProjectCard
+                      key={project.title}
+                      project={project}
+                      featured
+                      onOpen={openProject}
+                    />
+                  ),
+                )}
+              </div>
+
+              <div className="mt-12">
+                <h3 className="mb-5 text-xl font-semibold text-white">
+                  {t.sections.otherProjects}
+                </h3>
+
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {otherProjects.map(
+                    (project) => (
+                      <ProjectCard
+                        key={project.title}
+                        project={project}
+                        onOpen={openProject}
+                      />
+                    ),
+                  )}
+                </div>
+              </div>
+
+              <div className="mt-7 flex justify-center">
+                <a
+                  href={t.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl border border-slate-700 bg-slate-900/50 px-5 py-3 text-sm font-medium text-slate-200 no-underline transition hover:border-sky-400/30 hover:bg-sky-400/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                >
+                  {t.ui.moreOnGitHub}
+                </a>
+              </div>
+            </section>
+
+            <section
+              id="experience"
+              className="mt-20 scroll-mt-24"
+            >
+              <SectionTitle>
+                {t.sections.experience}
+              </SectionTitle>
+
+              <div className="grid gap-6 md:grid-cols-2">
+                {t.experiences.map(
+                  (experience) => (
+                    <ExperienceCard
+                      key={`${experience.role}-${experience.company}`}
+                      experience={experience}
+                      onRecommendation={setPdfUrl}
+                      recommendationLabel={
+                        t.ui.recommendation
+                      }
+                    />
+                  ),
+                )}
+              </div>
+            </section>
+
+            <section
+              id="education"
+              className="mt-20 scroll-mt-24"
+            >
+              <SectionTitle>
+                {t.sections.education}
+              </SectionTitle>
+
+              <div className="grid gap-5 md:grid-cols-2">
+                {t.education.map(
+                  (education) => (
+                    <motion.article
+                      key={education.title}
+                      initial={{
+                        opacity: 0,
+                        y: 14,
+                      }}
+                      whileInView={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      viewport={{
+                        once: true,
+                      }}
+                      className="rounded-2xl border border-slate-700/60 bg-slate-800/60 p-5 shadow-md"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="min-w-0 flex-1">
+                          <h3 className="text-lg font-semibold text-white">
+                            {education.title}
+                          </h3>
+
+                          <p className="mt-1 text-sm text-slate-400">
+                            {education.org}
+                          </p>
+
+                          <p className="mt-1 text-xs text-slate-500">
+                            {education.dates}
+                          </p>
+                        </div>
+
+                        <img
+                          src={`/${education.image}`}
+                          alt={`Logo de ${education.org}`}
+                          className="h-16 w-16 shrink-0 rounded-2xl bg-white/5 object-contain p-1"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    </motion.article>
+                  ),
+                )}
+              </div>
+            </section>
+
+            <section
+              id="skills"
+              className="mt-20 scroll-mt-24"
+            >
+              <SectionTitle>
+                {t.sections.skills}
+              </SectionTitle>
+
+              <SkillsGrid
+                lang={lang}
+                skills={t.skills}
+              />
+            </section>
+
+            <section className="mt-20">
+              <SectionTitle>
+                {t.sections.certifications}
+              </SectionTitle>
+
+              <div className="grid gap-4 md:grid-cols-3">
+                {t.certifications.map(
+                  (certification) => (
+                    <article
+                      key={certification.title}
+                      className="rounded-2xl border border-slate-700/60 bg-slate-800/60 p-5 shadow-md"
+                    >
+                      <h3 className="font-semibold text-white">
+                        {certification.title}
                       </h3>
 
-                      <p className="mt-1 text-sm text-slate-400">
-                        {education.org}
-                      </p>
-
                       <p className="mt-1 text-xs text-slate-500">
-                        {education.dates}
+                        {certification.date}
                       </p>
-                    </div>
 
-                    <img
-                      src={`/${education.image}`}
-                      alt={`Logo de ${education.org}`}
-                      className="h-16 w-16 shrink-0 rounded-2xl bg-white/5 object-contain p-1"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </motion.article>
-              ),
-            )}
-          </div>
-        </section>
+                      {certification.recommendationLink && (
+                        <a
+                          href={
+                            certification.recommendationLink
+                          }
+                          className="mt-4 inline-flex rounded-lg bg-sky-500 px-4 py-2 text-sm font-medium text-slate-950 no-underline transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                        >
+                          {t.ui.recommendation}
+                        </a>
+                      )}
+                    </article>
+                  ),
+                )}
+              </div>
+            </section>
 
-        <section
-          id="skills"
-          className="mt-20 scroll-mt-24"
-        >
-          <SectionTitle>
-            {t.sections.skills}
-          </SectionTitle>
+            <section
+              id="contact"
+              className="mt-20 scroll-mt-24 pb-8"
+            >
+              <SectionTitle>
+                {t.sections.contact}
+              </SectionTitle>
 
-          <SkillsGrid
-            lang={lang}
-            skills={t.skills}
-          />
-        </section>
-
-        <section className="mt-20">
-          <SectionTitle>
-            {t.sections.certifications}
-          </SectionTitle>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            {t.certifications.map(
-              (certification) => (
-                <article
-                  key={certification.title}
-                  className="rounded-2xl border border-slate-700/60 bg-slate-800/60 p-5 shadow-md"
-                >
-                  <h3 className="font-semibold text-white">
-                    {certification.title}
-                  </h3>
-
-                  <p className="mt-1 text-xs text-slate-500">
-                    {certification.date}
+              <div className="rounded-3xl border border-slate-700/60 bg-gradient-to-r from-slate-800/80 to-slate-900/80 p-7 shadow-xl md:flex md:items-center md:justify-between md:gap-8">
+                <div>
+                  <p className="text-xl font-semibold text-white">
+                    {t.name}
                   </p>
 
-                  {certification.recommendationLink && (
-                    <a
-                      href={
-                        certification.recommendationLink
-                      }
-                      className="mt-4 inline-flex rounded-lg bg-sky-500 px-4 py-2 text-sm font-medium text-slate-950 no-underline transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
-                    >
-                      {t.ui.recommendation}
-                    </a>
-                  )}
-                </article>
-              ),
-            )}
-          </div>
-        </section>
+                  <p className="mt-1 text-sm text-slate-400">
+                    {t.title} · {t.location}
+                  </p>
 
-        <section
-          id="contact"
-          className="mt-20 scroll-mt-24 pb-8"
-        >
-          <SectionTitle>
-            {t.sections.contact}
-          </SectionTitle>
+                  <a
+                    href={`mailto:${t.email}`}
+                    className="mt-2 inline-block text-sm text-sky-300 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                  >
+                    {t.email}
+                  </a>
+                </div>
 
-          <div className="rounded-3xl border border-slate-700/60 bg-gradient-to-r from-slate-800/80 to-slate-900/80 p-7 shadow-xl md:flex md:items-center md:justify-between md:gap-8">
-            <div>
-              <p className="text-xl font-semibold text-white">
-                {t.name}
-              </p>
+                <div className="mt-5 flex flex-wrap gap-3 md:mt-0">
+                  <a
+                    href={t.cv}
+                    className="rounded-xl bg-sky-500 px-4 py-2 font-medium text-slate-950 no-underline transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                  >
+                    {t.ui.downloadCV}
+                  </a>
 
-              <p className="mt-1 text-sm text-slate-400">
-                {t.title} · {t.location}
-              </p>
-
-              <a
-                href={`mailto:${t.email}`}
-                className="mt-2 inline-block text-sm text-sky-300 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
-              >
-                {t.email}
-              </a>
-            </div>
-
-            <div className="mt-5 flex flex-wrap gap-3 md:mt-0">
-              <a
-                href={t.cv}
-                className="rounded-xl bg-sky-500 px-4 py-2 font-medium text-slate-950 no-underline transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
-              >
-                {t.ui.downloadCV}
-              </a>
-
-              <SocialLinks data={t} />
-            </div>
-          </div>
-        </section>
+                  <SocialLinks data={t} />
+                </div>
+              </div>
+            </section>
+          </>
+        )}
       </main>
 
       <footer className="border-t border-slate-800/80 py-7 text-center text-sm text-slate-500">

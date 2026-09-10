@@ -88,6 +88,8 @@ const projectsES = [
         featured: true,
         linkLabel: "GitHub",
         slug: "steam-games",
+        slug: "steam-games",
+        slug: "steam-games",
     },
 
     {
@@ -433,13 +435,13 @@ const base = {
     github: "https://github.com/JaimeMGR",
     linkedin:
         "https://www.linkedin.com/in/jaime-m-a27794138/",
-    cv: "/JaimeMolinaGranados.pdf",
     skills: sharedSkills,
 };
 
 export const portfolioData = {
     es: {
         ...base,
+        cv: "/cv/CV_Jaime_Molina_Portfolio_ES.pdf",
         title: "Full Stack Developer | Data Engineering",
         location: "Granada, España",
         englishLevel: "Inglés: Nivel B2",
@@ -586,6 +588,7 @@ export const portfolioData = {
 
     en: {
         ...base,
+        cv: "/cv/CV_Jaime_Molina_Portfolio_EN.pdf",
         title: "Full Stack Developer | Data Engineering",
         location: "Granada, Spain",
         englishLevel: "English: B2 level",

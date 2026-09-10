@@ -1,32 +1,18 @@
-import React from "react";
+export function ContactButton({ label }) {
+  const subject = encodeURIComponent(
+    "Consulta desde mi portfolio",
+  );
 
-export function ContactButton({ lang }) {
-  function sendEmailEncoded() {
-    const emailB64 = "amFpbWVtZzEzMTJAZ21haWwuY29t"; // tu correo en base64
-    const subjectB64 = "Q29uc3VsdGEgZGVzZGUgbGEgd2Vi"; // "Consulta desde la web"
-    const bodyB64 = "SG9sYSwgcXVpc2llcmEgbcOhcyBpbmZvcm1hY2nDs24gc29icmUuLi4="; // "Hola, quisiera más información sobre..."
-
-    const email = atob(emailB64);
-    const subject = atob(subjectB64);
-    const body = atob(bodyB64);
-
-    const mailto = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    const a = document.createElement("a");
-    a.href = mailto;
-    a.style.display = "none";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
+  const body = encodeURIComponent(
+    "Hola Jaime, me gustaría contactar contigo.",
+  );
 
   return (
-    <button
-      type="button"
-      onClick={sendEmailEncoded}
-      className="inline-block border border-slate-700 text-slate-200 px-4 py-2 rounded-xl hover:bg-slate-700/30 transition no-underline"
+    <a
+      href={`mailto:jaimemg1312@gmail.com?subject=${subject}&body=${body}`}
+      className="inline-flex items-center justify-center rounded-xl border border-slate-700 px-4 py-2 font-medium text-slate-200 transition hover:bg-slate-700/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
     >
-      {lang === "es" ? "Enviar correo" : "Send email"}
-    </button>
+      {label}
+    </a>
   );
 }
